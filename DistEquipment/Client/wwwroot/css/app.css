@@ -62,3 +62,17 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.price {
+    color:blue;
+}
+.product-img {
+    max-height: 250px;
+    max-width: 250px;
+    border-radius: 6px;
+    margin-bottom:20px;
+    transition: transform .2s;
+}
+    .product-img:hover {
+    transform:scale(1.1);
+    }
