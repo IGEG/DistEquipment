@@ -1,6 +1,6 @@
 ﻿@inject IDataProduct DataProduct
 
-@foreach (var item in CategoryId==null ? DataProduct.Products : DataProduct.Products.Where(c=>c.CategoryId==CategoryId)) 
+@foreach (var item in CategoryId == 0 ? DataProduct.Products : DataProduct.Products.Where(c=>c.CategoryId==CategoryId))
 {
 <div class="card mb-3" style="max-width: 840px;">
   <div class="row g-0">
@@ -28,7 +28,7 @@
 
 @code {
     [Parameter]
-    public int? CategoryId { get; set; } = null;
+    public int CategoryId { get; set; } 
 
 
     protected override Task OnInitializedAsync()
