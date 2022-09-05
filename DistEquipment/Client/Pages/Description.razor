@@ -1,0 +1,35 @@
+﻿@page "/product/{id}"
+@inject IDataProduct DataProduct
+
+<div class="product">
+    <div class="product-img-big-wrapper m-2">
+        <img class="product-img-big" src="@product.Images" alt="@product.Name"/>
+    </div>
+    <div>
+        <h2 class="=m-2">@product.Name</h2>
+        <h3 class="m-2">@product.SmallDescription</h3>
+        <h4 class="m-2">@product.BigDescription</h4>
+        <h5 class="price">Цена: @product.Price</h5>
+        <button class="btn btn-primary m-2"><i class="oi oi-cart">&nbsp;Добвить в корзину</i></button>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private Product product = null;
+
+    protected override void OnInitialized()
+    {
+        if (DataProduct.Products == null || DataProduct.Products.Count() == 0)
+        {
+            DataProduct.LoadProduct();
+        }
+        if (Id != null) {
+            product = DataProduct.Products.FirstOrDefault(p => p.Id == Int32.Parse(Id));
+        }
+
+    }
+}

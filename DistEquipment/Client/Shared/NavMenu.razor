@@ -1,6 +1,8 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject IDataCategory DataCategory
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">DistEquipment</a>
+        <a class="navbar-brand" href="">UltraCliean</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,6 +16,16 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
+        <li class="dropdown-divider">  </li>
+            @foreach(var category in DataCategory.Categories)
+            {
+                 <div class="nav-item px-3">
+            <NavLink class="nav-link" href="@category.Url" Match="NavLinkMatch.All">
+                <span class="@category.Img" aria-hidden="true"></span> @category.Name
+            </NavLink>
+                </div>
+            }
+     
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="counter">
                 <span class="oi oi-plus" aria-hidden="true"></span> Counter
@@ -35,5 +47,10 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override void OnInitialized()
+    {
+        DataCategory.LoadCategory();
     }
 }

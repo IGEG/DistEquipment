@@ -15,7 +15,7 @@
     <ProjectReference Include="..\Shared\DistEquipment.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Watch Include="..\CLient\**\*.razor"/>
+    <Watch Include="..\CLient\**\*.razor" />
   </ItemGroup>
 
 

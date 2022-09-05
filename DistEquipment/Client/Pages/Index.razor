@@ -1,5 +1,32 @@
 ﻿@page "/"
+@page "/{categoryurl}"
+@inject IDataCategory DataCategory
 
 <PageTitle>Дистилляторы растворителей UltraClean</PageTitle>
+@if (category == null)
+{
+    <h2>UltraClean</h2>
+    <Products/>
+}
+else{
+    <h2>@category.Name</h2>
+<Products CategoryId="@category.IdCategory"/>
+}
 
-<Products/>
+@code{
+    [Parameter]
+    public string CategoryUrl { get; set; }
+
+    private Category category = null;
+
+    protected override void OnInitialized()
+    {
+        if (CategoryUrl != null)
+        {
+            category = DataCategory.Categories.FirstOrDefault(c => c.Url.ToLower().Equals(CategoryUrl.ToLower()));
+        }
+        else category = null;
+
+    }
+
+}

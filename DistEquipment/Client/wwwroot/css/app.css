@@ -73,6 +73,22 @@ a, .btn-link {
     margin-bottom:20px;
     transition: transform .2s;
 }
-    .product-img:hover {
+
+.product-img-big {
+    max-height: 500px;
+    max-width: 500px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+   
+}
+.product-img-big-wrapper {
+    max-height: 500px;
+    max-width: 500px;
+    text-align:center;
+}
+.product-img:hover {
     transform:scale(1.1);
     }
+.product {
+flex-direction:column;
+}

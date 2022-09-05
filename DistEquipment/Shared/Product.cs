@@ -15,6 +15,7 @@ namespace DistEquipment.Shared
         public string Images { get; set; }
         public string URL { get; set; }
         public decimal Price { get; set; }
+        public decimal OldPrice { get; set; }
         public decimal? SpesialPrice { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
