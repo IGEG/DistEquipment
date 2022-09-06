@@ -19,14 +19,14 @@ else{
 
     private Category category = null;
 
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
+
         if (CategoryUrl != null)
         {
             category = DataCategory.Categories.FirstOrDefault(c => c.Url.ToLower().Equals(CategoryUrl.ToLower()));
         }
         else category = null;
-
     }
-
+   
 }
