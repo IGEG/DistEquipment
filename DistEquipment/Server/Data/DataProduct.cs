@@ -9,6 +9,22 @@ namespace DistEquipment.Server.Data
             return  Products;
         }
 
+        public async Task<Product> GetProductbyId(int Id)
+        {
+            
+            return  Products.FirstOrDefault(p=>p.Id==Id);
+        }
+
+        public async Task<List<Product>> GetProductsByUrl(string Url)
+        {
+            if (Url != null)
+            { 
+                return Products.Where(p => p.URL.ToLower().Equals(Url.ToLower())).ToList();
+            }
+            else
+                return Products;
+        }
+
         public List<Product> Products = new List<Product>
     {
     new Product{Id=1,Name="Дистиллятор ULtraCliean 20EX",

@@ -1,16 +1,21 @@
 ﻿using DistEquipment.Shared;
+using System.Net.Http.Json;
 
 namespace DistEquipment.Client.Services
 {
     public class DataCategory : IDataCategory
     {
+        private readonly HttpClient _httpClient;
+
+        public DataCategory(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
         public List<Category> Categories { get; set ; }
         public void LoadCategory()
         {
-            Categories = new List<Category> {
-        new Category{ IdCategory=1,Name="Дистилляторы",Img="oi oi-cog",Url="distillars",Description="Оборудование для регенерации растворителей"},
-        new Category{ IdCategory=2,Name="Пакеты Rec-Bag",Img="oi oi-droplet",Url="Rec-Bag",Description="Термопакеты для сбора отработанного остатка дистилляции"}
-        };
+            _httpClient.GetFromJsonAsync<List<Category>>("api/Category");
         }
+        
     }
 }

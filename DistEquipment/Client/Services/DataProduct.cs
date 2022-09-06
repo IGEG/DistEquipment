@@ -21,6 +21,15 @@ namespace DistEquipment.Client.Services
                 Products = await httpClient.GetFromJsonAsync<List<Product>>("api/Product");
 
         }
-       
+        public async Task<Product> GetProductById(int Id)
+        {
+            return await httpClient.GetFromJsonAsync<Product>($"api/Product/{Id}");
+        }
+
+        public async Task<Product> GetProductById(int Id)
+        {
+            return await httpClient.GetFromJsonAsync<Product>($"api/Product/{Id}");
+        }
+
     }
 }

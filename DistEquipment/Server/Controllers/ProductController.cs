@@ -21,5 +21,17 @@ namespace DistEquipment.Server.Controllers
         {
             return Ok(await dataProduct.GetAllProducts());
         }
+
+        [HttpGet("{category/{Url}}")]
+        public async Task<ActionResult<List<Product>>> GetProductsByUrl(string Url)
+        {
+            return Ok(await dataProduct.GetProductsByUrl(Url));
+        }
+
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Product>> GetProductById(int Id)
+        {
+            return Ok(await dataProduct.GetProductbyId(Id));
+        }
     }
 }
