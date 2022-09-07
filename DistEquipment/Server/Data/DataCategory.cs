@@ -10,6 +10,11 @@ namespace DistEquipment.Server.Data
         new Category{ IdCategory=2,Name="Пакеты Rec-Bag",Img="oi oi-droplet",Url="Rec-Bag",Description="Термопакеты для сбора отработанного остатка дистилляции"}
         };
 
+        public async Task<Category> GetCategoryByUrl(string Url)
+        {
+            return Categories.FirstOrDefault(c => c.Url.ToLower().Equals(Url.ToLower()));
+        }
+
         public async Task<List<Category>> GetAllCategories()
         {
             return Categories;

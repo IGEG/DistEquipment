@@ -4,6 +4,11 @@ namespace DistEquipment.Server.Data
 {
     public class DataProduct:IDataProduct
     {
+        private readonly IDataCategory dataCategory;
+        public DataProduct(IDataCategory _dataCategory)
+        {
+            dataCategory = _dataCategory;
+        }
        public async Task<List<Product>> GetAllProducts()
         {
             return  Products;
@@ -12,14 +17,15 @@ namespace DistEquipment.Server.Data
         public async Task<Product> GetProductbyId(int Id)
         {
             
-            return  Products.FirstOrDefault(p=>p.Id==Id);
+            return   Products.FirstOrDefault(p=>p.Id==Id);
         }
 
         public async Task<List<Product>> GetProductsByUrl(string Url)
         {
-            if (Url != null)
+            Category category = await dataCategory.GetCategoryByUrl(Url);
+            if (category != null)
             { 
-                return Products.Where(p => p.URL.ToLower().Equals(Url.ToLower())).ToList();
+                return  Products.Where(p=>p.CategoryId==category.IdCategory).ToList();
             }
             else
                 return Products;
@@ -44,7 +50,6 @@ namespace DistEquipment.Server.Data
     Price=15000.00m,
     CategoryId=2}
     };
-
-
+        
     }
 }

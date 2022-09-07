@@ -1,17 +1,14 @@
 ﻿@page "/"
 @page "/{categoryUrl}"
 @inject IDataCategory DataCategory
+@inject IDataProduct DataProduct
 
 <PageTitle>Дистилляторы растворителей UltraClean</PageTitle>
-@if (category == null)
-{
+
+
     <h2>UltraClean</h2>
     <Products/>
-}
-else{
-    <h2>@category.Name</h2>
-<Products CategoryId="@category.IdCategory"/>
-}
+
 
 @code{
     [Parameter]
@@ -19,14 +16,11 @@ else{
 
     private Category category = null;
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
+        await DataProduct.LoadProduct(CategoryUrl);
+       
 
-        if (CategoryUrl != null)
-        {
-            category = DataCategory.Categories.FirstOrDefault(c => c.Url.ToLower().Equals(CategoryUrl.ToLower()));
-        }
-        else category = null;
     }
    
 }

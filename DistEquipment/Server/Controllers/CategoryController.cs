@@ -21,5 +21,11 @@ namespace DistEquipment.Server.Controllers
         {
             return Ok(await _dataCategory.GetAllCategories());
         }
+
+        [HttpGet("{Url}")]
+        public async Task<ActionResult<List<Product>>> GetCategoryByUrl(string Url)
+        {
+            return Ok(await _dataCategory.GetCategoryByUrl(Url));
+        }
     }
 }

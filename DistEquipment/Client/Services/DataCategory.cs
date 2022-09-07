@@ -1,5 +1,6 @@
 ﻿using DistEquipment.Shared;
 using System.Net.Http.Json;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DistEquipment.Client.Services
 {
@@ -12,9 +13,16 @@ namespace DistEquipment.Client.Services
             _httpClient = httpClient;
         }
         public List<Category> Categories { get; set ; }
-        public void LoadCategory()
+
+        public async Task<Category> GetCategoryByUrl(string Url)
         {
-            _httpClient.GetFromJsonAsync<List<Category>>("api/Category");
+
+            return await _httpClient.GetFromJsonAsync<Category>($"api/Category/{Url}");
+        }
+
+        public async Task LoadCategory()
+        {
+          Categories =  await _httpClient.GetFromJsonAsync<List<Category>>("api/Category");
         }
         
     }

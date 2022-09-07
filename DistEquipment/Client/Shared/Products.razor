@@ -1,12 +1,14 @@
 ﻿@inject IDataProduct DataProduct
+@implements IDisposable
 
-@foreach (var item in CategoryId == 0 ? DataProduct.Products : DataProduct.Products.Where(c=>c.CategoryId==CategoryId))
+
+@foreach (var item in DataProduct.Products)
 {
 <div class="card mb-3" style="max-width: 840px;">
   <div class="row g-0">
     <div class="col-md-4">
          <a href="/product/@item.Id">
-   <img  class="product-img" src="@item.Images" alt="@item.Name">
+   <img  class="product-img float:left;" src="@item.Images" alt="@item.Name">
          </a>
     </div>
     <div class="col-md-8">
@@ -27,13 +29,18 @@
 
 
 @code {
-    [Parameter]
-    public int CategoryId { get; set; } 
+    
 
 
-    protected override Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-       return  DataProduct.LoadProduct();
+     
+      
+        DataProduct.OnChange += StateHasChanged;
+    }
+    public void Dispose()
+    {
+        DataProduct.OnChange -= StateHasChanged;
     }
 
 }

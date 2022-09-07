@@ -4,7 +4,10 @@ namespace DistEquipment.Client.Services
 {
     public interface IDataProduct
     {
+        event Action OnChange; 
         List<Product> Products { get; set; }
-        public Task LoadProduct();
+        Task LoadProduct(string Url=null);
+
+        Task<Product> GetProductById(int Id);
     }
 }
