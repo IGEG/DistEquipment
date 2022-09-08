@@ -6,7 +6,7 @@ namespace DistEquipment.Client.Services
     {
         List<Category> Categories { get; set; }
 
-        Task LoadCategory();
+        Task<List<Category>> LoadCategory();
 
         Task<Category> GetCategoryByUrl(string Url);
     }

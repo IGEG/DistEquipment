@@ -17,7 +17,7 @@
             </NavLink>
         </div>
      
-            @foreach(var category in DataCategory.Categories)
+            @foreach(var category in Categories)
             {
                  <div class="nav-item px-3">
             <NavLink class="nav-link" href="@category.Url" Match="NavLinkMatch.All">
@@ -38,8 +38,10 @@
         collapseNavMenu = !collapseNavMenu;
     }
 
+    private List<Category> Categories = new List<Category>();
+
     protected override async Task OnInitializedAsync()
     {
-        await DataCategory.LoadCategory();
+       Categories = await DataCategory.LoadCategory();
     }
 }

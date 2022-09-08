@@ -20,9 +20,9 @@ namespace DistEquipment.Client.Services
             return await _httpClient.GetFromJsonAsync<Category>($"api/Category/{Url}");
         }
 
-        public async Task LoadCategory()
+        public async Task<List<Category>> LoadCategory()
         {
-          Categories =  await _httpClient.GetFromJsonAsync<List<Category>>("api/Category");
+          return  await _httpClient.GetFromJsonAsync<List<Category>>("api/Category");
         }
         
     }
