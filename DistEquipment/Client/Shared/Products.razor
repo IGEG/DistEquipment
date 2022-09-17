@@ -8,7 +8,7 @@
   <div class="row g-0">
     <div class="col-md-4">
          <a href="/product/@item.Id">
-   <img  class="product-img float:left;" src="@item.Images" alt="@item.Name">
+   <img  class="product-img" src="@item.Images" alt="@item.Name">
          </a>
     </div>
     <div class="col-md-8">
@@ -34,8 +34,7 @@
 
     protected override void OnInitialized()
     {
-     
-      
+
         DataProduct.OnChange += StateHasChanged;
     }
     public void Dispose()
