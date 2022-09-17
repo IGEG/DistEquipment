@@ -33,5 +33,7 @@ namespace DistEquipment.Shared
         public DateTime DateOfSaller { get; set; } = DateTime.Now;
 
         public DateTime? DateOfUpdate { get; set; }
+
+        public List<ProductOption> ProductOptions { get; set; }
     }
 }

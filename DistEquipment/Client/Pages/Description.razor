@@ -6,10 +6,21 @@
         <img class="product-img-big" src="@product.Images" alt="@product.Name"/>
     </div>
     <div>
-        <h2 class="=m-2">@product.Name</h2>
-        <h3 class="m-2">@product.SmallDescription</h3>
-        <h4 class="m-2">@product.BigDescription</h4>
-        <h5 class="price">Цена: @product.Price</h5>
+        <h4 class="=m-2">&nbsp;@product.Name</h4>
+        <h5 class="m-2">@product.SmallDescription</h5>
+        <p class="m-2">@product.BigDescription</p>
+        @if(product.ProductOptions!=null && product.ProductOptions.Count>0)
+        {
+        <div class="form-group m-2">
+             <h5 class="price">Цена: @product.Price</h5>
+            <select class="form-control" id="selectoptions">
+              @foreach(var option in product.ProductOptions)
+              {
+              <option>@option.Name</option>
+              }
+            </select>
+        </div>
+        }
         <button class="btn btn-primary m-2"><i class="oi oi-cart">&nbsp;Добвить в корзину</i></button>
     </div>
 

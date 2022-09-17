@@ -65,6 +65,7 @@ a, .btn-link {
 
 .price {
     color:blue;
+    margin: 2px;
 }
 .product-img {
     max-height: 250px;
@@ -91,4 +92,7 @@ a, .btn-link {
     }
 .product {
 flex-direction:column;
+}
+#selectoptions {
+    max-width:300px;
 }

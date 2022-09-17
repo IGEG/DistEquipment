@@ -4,6 +4,7 @@ using DistEquipment.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DistEquipment.Server.Migrations
 {
     [DbContext(typeof(AppDBcontext))]
-    partial class AppDBcontextModelSnapshot : ModelSnapshot
+    [Migration("20220917154019_productoptions")]
+    partial class productoptions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,7 +130,7 @@ namespace DistEquipment.Server.Migrations
                             Id = 1,
                             BigDescription = "Дистиллятор растворителей ULtraCliean 20EX на 20 литров обладает компактным размером и эргономичным дизайном.На панели приборов удобно расположены тумблер для выбора температурного режима и таймер дистилляции. LED дисплей позволяет отображать оставшееся врем перегонки,общее врем работы дистиллятора. Специальный индикатор показывает в какой промежуток времени идет нагрев масла.",
                             CategoryId = 1,
-                            DateOfSaller = new DateTime(2022, 9, 17, 19, 41, 14, 457, DateTimeKind.Local).AddTicks(7673),
+                            DateOfSaller = new DateTime(2022, 9, 17, 18, 40, 18, 26, DateTimeKind.Local).AddTicks(4515),
                             Images = "https://www.solventrecyclingmachine.com/wp-content/uploads/2021/11/standard-solvent-recycling-unit.png",
                             IsClose = false,
                             IsOpen = false,
@@ -143,7 +145,7 @@ namespace DistEquipment.Server.Migrations
                             Id = 2,
                             BigDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX имеют плотную структуру, что позволяет их использовать при аккуратной работе более одного раза. Данные термопакеты обладают высокой термостойкостью, до 200 градусов Цельсия. Пакеты рек бэг изготовлены из специальных термостойких пластиков с гомогенной структурой.Термопакеты \"Rec Bag\" поставляются упаковкой по 50 штук. Использование термопакетов rec-bag актуально при дистилляции растворителей загрязненных красками, лаками, любыми твердыми частицами.",
                             CategoryId = 2,
-                            DateOfSaller = new DateTime(2022, 9, 17, 19, 41, 14, 457, DateTimeKind.Local).AddTicks(7769),
+                            DateOfSaller = new DateTime(2022, 9, 17, 18, 40, 18, 26, DateTimeKind.Local).AddTicks(4591),
                             Images = "https://developmentbeccaince896.zapwp.com/q:intelligent/retina:false/webp:false/w:1/url:https://www.beccainc.com/wp-content/uploads/2015/07/Recycling-Bag.jpg",
                             IsClose = false,
                             IsOpen = false,
@@ -170,23 +172,6 @@ namespace DistEquipment.Server.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductOptions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Без опций"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "С генератором вакуума"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "С автоматической загрузкой"
-                        });
                 });
 
             modelBuilder.Entity("ProductProductOption", b =>
@@ -202,23 +187,6 @@ namespace DistEquipment.Server.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("ProductProductOption");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductOptionsId = 1,
-                            ProductsId = 1
-                        },
-                        new
-                        {
-                            ProductOptionsId = 2,
-                            ProductsId = 1
-                        },
-                        new
-                        {
-                            ProductOptionsId = 3,
-                            ProductsId = 1
-                        });
                 });
 
             modelBuilder.Entity("DistEquipment.Shared.Product", b =>

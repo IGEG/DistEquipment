@@ -21,7 +21,7 @@ namespace DistEquipment.Server.Data
         public async Task<Product> GetProductbyId(int Id)
         {
             
-            Product product = await appDBcontext.Products.FirstOrDefaultAsync(p=>p.Id==Id);
+            Product product = await appDBcontext.Products.Include(o=>o.ProductOptions).FirstOrDefaultAsync(p=>p.Id==Id);
             return product;
         }
 

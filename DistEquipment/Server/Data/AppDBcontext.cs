@@ -11,6 +11,7 @@ namespace DistEquipment.Server.Data
         }
        public DbSet<Category> Categories { get; set; }
        public  DbSet<Product> Products { get; set; }
+       public DbSet<ProductOption> ProductOptions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -45,6 +46,19 @@ namespace DistEquipment.Server.Data
                       CategoryId = 2
                   }
                 );
+            modelBuilder.Entity<ProductOption>().HasData(
+                new ProductOption { Id = 1, Name="Без опций"},
+                new ProductOption { Id = 2, Name = "С генератором вакуума" },
+                new ProductOption { Id = 3, Name = "С автоматической загрузкой" }
+                );
+            modelBuilder.SharedTypeEntity<Dictionary<string, object>>("ProductProductOption").HasData(
+
+                new { ProductOptionsId = 1, ProductsId = 1 },
+                new { ProductOptionsId = 2, ProductsId = 1 },
+                new { ProductOptionsId = 3, ProductsId = 1 }
+                );
+
+                
         }
         
 

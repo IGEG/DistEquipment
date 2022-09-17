@@ -4,6 +4,7 @@ using DistEquipment.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DistEquipment.Server.Migrations
 {
     [DbContext(typeof(AppDBcontext))]
-    partial class AppDBcontextModelSnapshot : ModelSnapshot
+    [Migration("20220917161036_productwithoptions")]
+    partial class productwithoptions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,7 +130,7 @@ namespace DistEquipment.Server.Migrations
                             Id = 1,
                             BigDescription = "Дистиллятор растворителей ULtraCliean 20EX на 20 литров обладает компактным размером и эргономичным дизайном.На панели приборов удобно расположены тумблер для выбора температурного режима и таймер дистилляции. LED дисплей позволяет отображать оставшееся врем перегонки,общее врем работы дистиллятора. Специальный индикатор показывает в какой промежуток времени идет нагрев масла.",
                             CategoryId = 1,
-                            DateOfSaller = new DateTime(2022, 9, 17, 19, 41, 14, 457, DateTimeKind.Local).AddTicks(7673),
+                            DateOfSaller = new DateTime(2022, 9, 17, 19, 10, 34, 382, DateTimeKind.Local).AddTicks(8441),
                             Images = "https://www.solventrecyclingmachine.com/wp-content/uploads/2021/11/standard-solvent-recycling-unit.png",
                             IsClose = false,
                             IsOpen = false,
@@ -143,7 +145,7 @@ namespace DistEquipment.Server.Migrations
                             Id = 2,
                             BigDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX имеют плотную структуру, что позволяет их использовать при аккуратной работе более одного раза. Данные термопакеты обладают высокой термостойкостью, до 200 градусов Цельсия. Пакеты рек бэг изготовлены из специальных термостойких пластиков с гомогенной структурой.Термопакеты \"Rec Bag\" поставляются упаковкой по 50 штук. Использование термопакетов rec-bag актуально при дистилляции растворителей загрязненных красками, лаками, любыми твердыми частицами.",
                             CategoryId = 2,
-                            DateOfSaller = new DateTime(2022, 9, 17, 19, 41, 14, 457, DateTimeKind.Local).AddTicks(7769),
+                            DateOfSaller = new DateTime(2022, 9, 17, 19, 10, 34, 382, DateTimeKind.Local).AddTicks(8520),
                             Images = "https://developmentbeccaince896.zapwp.com/q:intelligent/retina:false/webp:false/w:1/url:https://www.beccainc.com/wp-content/uploads/2015/07/Recycling-Bag.jpg",
                             IsClose = false,
                             IsOpen = false,
