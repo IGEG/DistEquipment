@@ -1,5 +1,6 @@
 ﻿@page "/product/{id:int}"
 @inject IDataProduct DataProduct
+@inject ILocalStorageService LocalStorage
 
 <div class="product">
     <div class="product-img-big-wrapper m-2">
@@ -24,7 +25,7 @@
             </select>
         </div>
         }
-        <button class="btn btn-primary m-2"><i class="oi oi-cart">&nbsp;Добвить в корзину</i></button>
+        <button class="btn btn-primary m-2" @onclick="AddToCart"><i class="oi oi-cart">&nbsp;Добвить в корзину</i></button>
     </div>
 
 </div>
@@ -52,4 +53,18 @@
         var model = product.ProductModels.FirstOrDefault(m => m.ProductOptionId == itemModelId);
         return model;
     }
+
+    private async Task AddToCart()
+    {
+        var cart = await LocalStorage.GetItemAsync<List<ProductModel>>("cart");
+        if (cart == null)
+        {
+            cart = new List<ProductModel>();
+        }
+        cart.Add(GetModelProduct());
+        await LocalStorage.SetItemAsync("cart", cart);
+
+    }
+
+
 }
