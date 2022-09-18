@@ -1,4 +1,5 @@
 using Blazored.LocalStorage;
+using Blazored.Toast;
 using DistEquipment.Client;
 using DistEquipment.Client.Services;
 using Microsoft.AspNetCore.Components.Web;
@@ -12,5 +13,6 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IDataProduct, DataProduct>();
 builder.Services.AddScoped<IDataCategory, DataCategory>();
 builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddBlazoredToast();
 
 await builder.Build().RunAsync();
