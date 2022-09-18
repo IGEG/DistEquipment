@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistEquipment.Server", "DistEquipment\Server\DistEquipment.Server.csproj", "{2B02048F-FCCE-439B-A333-20A0F8187537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistEquipment.Server", "DistEquipment\Server\DistEquipment.Server.csproj", "{2B02048F-FCCE-439B-A333-20A0F8187537}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistEquipment.Client", "DistEquipment\Client\DistEquipment.Client.csproj", "{DF6B345F-27EF-443E-95F9-C879419FFFB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistEquipment.Client", "DistEquipment\Client\DistEquipment.Client.csproj", "{DF6B345F-27EF-443E-95F9-C879419FFFB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistEquipment.Shared", "DistEquipment\Shared\DistEquipment.Shared.csproj", "{85F69E0F-8A47-4CD3-AAA7-FC02B06A935E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistEquipment.Shared", "DistEquipment\Shared\DistEquipment.Shared.csproj", "{85F69E0F-8A47-4CD3-AAA7-FC02B06A935E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
