@@ -15,26 +15,18 @@
       <div class="card-body">
            <a href="/product/@item.Id">
         <h5 class="card-title">@item.Name</h5>
-                        </a>
+           </a>
        <p class="card-text">@item.SmallDescription</p>
-       <p class="card-text"><small class="text-muted">Старая цена: <s> @item.OldPrice Руб.</s></small></p>
-       <p class="card-text"><small class="price">Цена: @item.Price Руб.</small></p>
+       <p class="card-text"><small class="price">Цена: @GetPrice(item) Руб.</small></p>
       </div>
     </div>
   </div>
 </div>
 
 }
-
-
-
 @code {
-    
-
-
     protected override void OnInitialized()
     {
-
         DataProduct.OnChange += StateHasChanged;
     }
     public void Dispose()
@@ -42,4 +34,22 @@
         DataProduct.OnChange -= StateHasChanged;
     }
 
+    private string GetPrice(Product product)
+    {
+        var model = product.ProductModels;
+        if (model.Count() == 0)
+        {
+            return String.Empty;
+        }
+        if (model.Count() == 1)
+        {
+            return $"{model[0].Price}";
+        }
+        else
+        {
+            decimal? minPrice = model.Min(p => p.Price);
+            return $"{minPrice}";
+        }
+
+    }
 }

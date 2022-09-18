@@ -15,6 +15,8 @@ namespace DistEquipment.Server.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ProductModel>().HasKey(p => new { p.ProductId, p.ProductOptionId });
+
             modelBuilder.Entity<Category>().HasData(
                  new Category { IdCategory = 1, Name = "Дистилляторы", Img = "oi oi-cog", Url = "distillars", Description = "Оборудование для регенерации растворителей" },
             new Category { IdCategory = 2, Name = "Пакеты Rec-Bag", Img = "oi oi-droplet", Url = "Rec-Bag", Description = "Термопакеты для сбора отработанного остатка дистилляции" }
@@ -29,8 +31,6 @@ namespace DistEquipment.Server.Data
                      BigDescription = "Дистиллятор растворителей ULtraCliean 20EX на 20 литров обладает компактным размером и эргономичным дизайном.На панели приборов удобно расположены тумблер для выбора температурного режима и таймер дистилляции. LED дисплей позволяет отображать оставшееся врем перегонки,общее врем работы дистиллятора. Специальный индикатор показывает в какой промежуток времени идет нагрев масла.",
                      Images = "https://www.solventrecyclingmachine.com/wp-content/uploads/2021/11/standard-solvent-recycling-unit.png",
                      URL = "UltraClean20Ex",
-                     Price = 400000.00m,
-                     OldPrice = 490000.00m,
                      CategoryId = 1
                  },
                   new Product
@@ -41,24 +41,23 @@ namespace DistEquipment.Server.Data
                       BigDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX имеют плотную структуру, что позволяет их использовать при аккуратной работе более одного раза. Данные термопакеты обладают высокой термостойкостью, до 200 градусов Цельсия. Пакеты рек бэг изготовлены из специальных термостойких пластиков с гомогенной структурой.Термопакеты \"Rec Bag\" поставляются упаковкой по 50 штук. Использование термопакетов rec-bag актуально при дистилляции растворителей загрязненных красками, лаками, любыми твердыми частицами.",
                       Images = "https://developmentbeccaince896.zapwp.com/q:intelligent/retina:false/webp:false/w:1/url:https://www.beccainc.com/wp-content/uploads/2015/07/Recycling-Bag.jpg",
                       URL = "RecBag20Ex",
-                      OldPrice = 19000.00m,
-                      Price = 15000.00m,
                       CategoryId = 2
                   }
                 );
             modelBuilder.Entity<ProductOption>().HasData(
                 new ProductOption { Id = 1, Name="Без опций"},
                 new ProductOption { Id = 2, Name = "С генератором вакуума" },
-                new ProductOption { Id = 3, Name = "С автоматической загрузкой" }
-                );
-            modelBuilder.SharedTypeEntity<Dictionary<string, object>>("ProductProductOption").HasData(
-
-                new { ProductOptionsId = 1, ProductsId = 1 },
-                new { ProductOptionsId = 2, ProductsId = 1 },
-                new { ProductOptionsId = 3, ProductsId = 1 }
+                new ProductOption { Id = 3, Name = "С автоматической загрузкой" },
+                new ProductOption { Id = 4, Name = "Упаковка 50 шт." }
                 );
 
-                
+            modelBuilder.Entity<ProductModel>().HasData(
+                new ProductModel { ProductId = 1, ProductOptionId = 1, Price = 400000.00m, OldPrice = 490000.00m },
+                new ProductModel { ProductId = 1, ProductOptionId = 2, Price = 560000.00m, OldPrice = 690000.00m },
+                new ProductModel { ProductId = 1, ProductOptionId = 3, Price = 490000.00m, OldPrice = 570000.00m },
+                new ProductModel { ProductId = 2, ProductOptionId = 4, Price = 15000.00m, OldPrice = 19000.00m }
+
+                );
         }
         
 

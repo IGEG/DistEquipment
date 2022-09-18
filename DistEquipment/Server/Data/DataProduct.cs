@@ -15,13 +15,13 @@ namespace DistEquipment.Server.Data
         }
        public async Task<List<Product>> GetAllProducts()
         {
-            return await appDBcontext.Products.ToListAsync();
+            return await appDBcontext.Products.Include(m=>m.ProductModels).ToListAsync();
         }
 
         public async Task<Product> GetProductbyId(int Id)
         {
             
-            Product product = await appDBcontext.Products.Include(o=>o.ProductOptions).FirstOrDefaultAsync(p=>p.Id==Id);
+            Product product = await appDBcontext.Products.Include(o=>o.ProductModels).ThenInclude(p=>p.ProductOption).FirstOrDefaultAsync(p=>p.Id==Id);
             return product;
         }
 
@@ -29,7 +29,7 @@ namespace DistEquipment.Server.Data
         {
             Category category = await dataCategory.GetCategoryByUrl(Url);
           
-            return await appDBcontext.Products.Where(p=>p.CategoryId==category.IdCategory).ToListAsync();
+            return await appDBcontext.Products.Include(m=>m.ProductModels).Where(p=>p.CategoryId==category.IdCategory).ToListAsync();
       
         }
 

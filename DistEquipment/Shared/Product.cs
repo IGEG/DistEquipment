@@ -18,12 +18,6 @@ namespace DistEquipment.Shared
         public string? Images { get; set; }
         public string URL { get; set; }
 
-        [Column(TypeName = "Decimal(10,2)")]
-        public decimal? Price { get; set; }
-
-        [Column(TypeName = "Decimal(10,2)")]
-        public decimal? OldPrice { get; set; }
-
         [Column(TypeName ="Decimal(10,2)")]
         public decimal? SpesialPrice { get; set; }
         public int CategoryId { get; set; }
@@ -34,6 +28,6 @@ namespace DistEquipment.Shared
 
         public DateTime? DateOfUpdate { get; set; }
 
-        public List<ProductOption> ProductOptions { get; set; }
+        public List<ProductModel> ProductModels { get; set; } = new List<ProductModel>();
     }
 }

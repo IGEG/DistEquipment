@@ -9,14 +9,17 @@
         <h4 class="=m-2">&nbsp;@product.Name</h4>
         <h5 class="m-2">@product.SmallDescription</h5>
         <p class="m-2">@product.BigDescription</p>
-        @if(product.ProductOptions!=null && product.ProductOptions.Count>0)
+        @if(product.ProductModels!=null && product.ProductModels.Count>1)
         {
         <div class="form-group m-2">
-             <h5 class="price">Цена: @product.Price</h5>
-            <select class="form-control" id="selectoptions">
-              @foreach(var option in product.ProductOptions)
+            @if(GetModelProduct!=null){
+             <h5 class="text-muted">Старая цена: @GetModelProduct().OldPrice</h5>
+             <h5 class="price">Цена: @GetModelProduct().Price</h5>
+            }
+            <select class="form-control" @bind="itemModelId">
+              @foreach(var option in product.ProductModels)
               {
-              <option>@option.Name</option>
+              <option value="@option.ProductOptionId">@option.ProductOption.Name</option>
               }
             </select>
         </div>
@@ -30,11 +33,23 @@
     [Parameter]
     public int Id { get; set; }
 
+    private int itemModelId = 1;
+
     private Product product = new Product();
 
     protected override async Task OnInitializedAsync()
     {
         product = await DataProduct.GetProductById(Id);
+        if (product.ProductModels.Count() > 1)
+        {
+            itemModelId = product.ProductModels[0].ProductOptionId;
+        }
 
+    }
+
+    private ProductModel GetModelProduct()
+    {
+        var model = product.ProductModels.FirstOrDefault(m => m.ProductOptionId == itemModelId);
+        return model;
     }
 }
