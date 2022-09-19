@@ -1,10 +1,11 @@
 ﻿@inject ISyncLocalStorageService LocalStorage
 
-<a href="/cart" class="btn btn-info">
-    <i class="oi oi-cart"></i>
-    Корзина
-    <span class="badge">@GetProductCount()</span>
-</a>
+<button type="button" href="/cart" class="btn btn-primary position-relative p-1">
+    <i class="oi oi-cart"></i> Корзина
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        @GetProductCount()
+    </span>
+</button>
 
 @code {
     private int GetProductCount()
