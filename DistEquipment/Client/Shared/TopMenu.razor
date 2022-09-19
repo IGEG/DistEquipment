@@ -2,12 +2,14 @@
 @inject IDataCart dataCart
 @implements IDisposable
 
-<button type="button" href="/cart" class="btn btn-primary position-relative p-1">
+<a href="cart" class="btn btn-primary">
     <i class="oi oi-cart"></i> Корзина
-    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    <span class="badge rounded-pill bg-light text-dark">
         @GetProductCount()
     </span>
-</button>
+</a>
+
+
 
 @code {
     protected override void OnInitialized()

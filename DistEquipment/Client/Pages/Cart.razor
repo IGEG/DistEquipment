@@ -1,0 +1,19 @@
+﻿@page "/cart"
+
+@inject IDataCart dataCart
+
+<h3>Товары в корзине:</h3>
+@if (cartRows == null || cartRows.Count < 1)
+{ 
+<span>Корзина пуста</span>
+}
+
+
+@code {
+    private List<CartRow> cartRows = new List<CartRow>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        cartRows = await dataCart.GetAllCartRows();
+    }
+}

@@ -8,5 +8,7 @@ namespace DistEquipment.Client.Services
     {
         event Action OnChange;
         Task AddToCart(ProductModel productModl);
+
+        Task<List<CartRow>> GetAllCartRows();
     }
 }

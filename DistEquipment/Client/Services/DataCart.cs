@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Blazored.Toast.Services;
+using DistEquipment.Client.Pages;
 using DistEquipment.Shared;
 
 namespace DistEquipment.Client.Services
@@ -31,6 +32,36 @@ namespace DistEquipment.Client.Services
             toastService.ShowSuccess(product.Name, "Добавлено в корзину:");
             OnChange.Invoke();
 
+        }
+
+        public async Task<List<CartRow>> GetAllCartRows()
+        {
+            var result = new List<CartRow>();
+            var cart = await localStorage.GetItemAsync<List<ProductModel>>("cart");
+            if (cart == null)
+            {
+                return result;
+            }
+            foreach (var cartRow in cart)
+            {
+                var product = await dataProduct.GetProductById(cartRow.ProductId);
+                var row = new CartRow
+                {
+                    ProductId = product.Id,
+                    ProductName = product.Name,
+                    Img = product.Images,
+                    OptionId = cartRow.ProductOptionId,
+                };
+                var model = product.ProductModels.Find(m => m.ProductOptionId == cartRow.ProductOptionId);
+                if (model != null)
+                {
+                    row.OptionName = model.ProductOption?.Name;
+                    row.Price = model.Price;
+                }
+                result.Add(row);
+            }
+            return result;
+         
         }
     }
 }
