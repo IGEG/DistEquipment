@@ -1,6 +1,7 @@
 ﻿using DistEquipment.Shared;
 using System.Net.Http.Json;
 
+
 namespace DistEquipment.Client.Services
 {
     public class DataProduct: IDataProduct

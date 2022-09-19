@@ -1,4 +1,6 @@
 ﻿@inject ISyncLocalStorageService LocalStorage
+@inject IDataCart dataCart
+@implements IDisposable
 
 <button type="button" href="/cart" class="btn btn-primary position-relative p-1">
     <i class="oi oi-cart"></i> Корзина
@@ -8,6 +10,15 @@
 </button>
 
 @code {
+    protected override void OnInitialized()
+    {
+        dataCart.OnChange += StateHasChanged;
+    }
+    public void Dispose()
+    {
+        dataCart.OnChange -= StateHasChanged;
+    }
+
     private int GetProductCount()
     {
         var cart = LocalStorage.GetItem<List<ProductModel>>("cart");
