@@ -42,17 +42,17 @@ namespace DistEquipment.Client.Services
             {
                 return result;
             }
-            foreach (var cartRow in cart)
+            foreach (var item in cart)
             {
-                var product = await dataProduct.GetProductById(cartRow.ProductId);
+                var product = await dataProduct.GetProductById(item.ProductId);
                 var row = new CartRow
                 {
                     ProductId = product.Id,
                     ProductName = product.Name,
                     Img = product.Images,
-                    OptionId = cartRow.ProductOptionId,
+                    OptionId = item?.ProductOptionId,
                 };
-                var model = product.ProductModels.Find(m => m.ProductOptionId == cartRow.ProductOptionId);
+                var model = product.ProductModels.FirstOrDefault(m => m.ProductOptionId == item?.ProductOptionId);
                 if (model != null)
                 {
                     row.OptionName = model.ProductOption?.Name;

@@ -96,3 +96,24 @@ flex-direction:column;
 #selectoptions {
     max-width:300px;
 }
+.row-container {
+    display:flex;
+    padding:5px;
+}
+.row-image-wrapper {
+    width:150px;
+    text-align:center;
+}
+.row-image {
+    max-height:150px;
+    max-width:150px;
+    padding:6px;
+}
+.row-name {
+    flex-grow:1;
+    padding:6px;
+}
+.row-price {
+    font-weight:600;
+    text-align:right;
+}

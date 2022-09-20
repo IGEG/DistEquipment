@@ -2,7 +2,6 @@
 
 namespace DistEquipment.Client.Services
 
-
 {
     public interface IDataCart
     {

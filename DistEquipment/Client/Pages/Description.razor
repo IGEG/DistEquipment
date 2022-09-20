@@ -12,10 +12,10 @@
         <h4 class="=m-2">&nbsp;@product.Name</h4>
         <h5 class="m-2">@product.SmallDescription</h5>
         <p class="m-2">@product.BigDescription</p>
-        @if(product.ProductModels!=null && product.ProductModels.Count>1)
+        @if(product.ProductModels!=null && product.ProductModels.Count>0)
         {
         <div class="form-group m-2">
-            @if(GetModelProduct!=null){
+            @if(GetModelProduct()!=null){
              <h5 class="text-muted">Старая цена: @GetModelProduct().OldPrice</h5>
              <h5 class="price">Цена: @GetModelProduct().Price</h5>
             }
@@ -43,7 +43,7 @@
     protected override async Task OnInitializedAsync()
     {
         product = await DataProduct.GetProductById(Id);
-        if (product.ProductModels.Count() > 1)
+        if (product.ProductModels.Count() > 0)
         {
             itemModelId = product.ProductModels[0].ProductOptionId;
         }

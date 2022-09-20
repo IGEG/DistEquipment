@@ -7,6 +7,27 @@
 { 
 <span>Корзина пуста</span>
 }
+else
+{
+<div>
+  @foreach (var row in cartRows)
+ {
+<div class="row-conteinr">
+    <div class="row-image-wrapper"><img class="row-image" src="@row.Img"/></div>
+    <div class="row-name">
+        <h5><a href="product/@row.ProductId">@row.ProductName</a></h5>
+        <span>@row.OptionName</span>
+    </div>
+    <div class="row-price">
+        @row.Price Руб.
+    </div>
+</div>
+ }
+ <div class="row-tottal-price">
+Итого (@cartRows.Count шт.): @cartRows.Sum(row=>row.Price) Руб.;
+ </div>
+</div>
+}
 
 
 @code {
