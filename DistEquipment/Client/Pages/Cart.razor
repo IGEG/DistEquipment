@@ -12,18 +12,22 @@ else
 <div>
   @foreach (var row in cartRows)
  {
-<div class="row-conteinr">
-    <div class="row-image-wrapper"><img class="row-image" src="@row.Img"/></div>
-    <div class="row-name">
-        <h5><a href="product/@row.ProductId">@row.ProductName</a></h5>
-        <span>@row.OptionName</span>
-    </div>
-    <div class="row-price">
-        @row.Price Руб.
-    </div>
-</div>
- }
- <div class="row-tottal-price">
+            <div class="card mb-3" >
+                <div class="row g-0">
+                    <div class="col-md-4" style="max-width:150px; max-height:150px;">
+                        <img src="@row.Img" class="img-fluid rounded-start" alt="@row.ProductName">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@row.ProductName</h5>
+                            <p class="card-text">@row.OptionName</p>
+                            <p class="card-text"><small class="text-muted">@row.Price Руб.</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+ <div style="padding:5px 5px 20px;">
 Итого (@cartRows.Count шт.): @cartRows.Sum(row=>row.Price) Руб.;
  </div>
 </div>

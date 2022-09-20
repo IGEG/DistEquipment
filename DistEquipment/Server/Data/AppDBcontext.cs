@@ -39,7 +39,8 @@ namespace DistEquipment.Server.Data
                       Name = "Пакеты Rec-Bag 20 литров",
                       SmallDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX",
                       BigDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX имеют плотную структуру, что позволяет их использовать при аккуратной работе более одного раза. Данные термопакеты обладают высокой термостойкостью, до 200 градусов Цельсия. Пакеты рек бэг изготовлены из специальных термостойких пластиков с гомогенной структурой.Термопакеты \"Rec Bag\" поставляются упаковкой по 50 штук. Использование термопакетов rec-bag актуально при дистилляции растворителей загрязненных красками, лаками, любыми твердыми частицами.",
-                      Images = "https://developmentbeccaince896.zapwp.com/q:intelligent/retina:false/webp:false/w:1/url:https://www.beccainc.com/wp-content/uploads/2015/07/Recycling-Bag.jpg",
+                      //Images = "https://developmentbeccaince896.zapwp.com/q:intelligent/retina:false/webp:false/w:1/url:https://www.beccainc.com/wp-content/uploads/2015/07/Recycling-Bag.jpg",
+                      Images = "~/wwwroot/Img/rec-bag30.png",
                       URL = "RecBag20Ex",
                       CategoryId = 2
                   }
