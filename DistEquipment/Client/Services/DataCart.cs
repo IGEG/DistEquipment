@@ -63,5 +63,23 @@ namespace DistEquipment.Client.Services
             return result;
          
         }
+
+        public async Task DeleteRow(CartRow cartRow)
+        {
+            var cart = await localStorage.GetItemAsync<List<ProductModel>>("cart");
+            if (cart == null)
+            {
+                return;
+            }
+            var row = cart.FirstOrDefault(r => r.ProductId == cartRow.ProductId && r.ProductOptionId == cartRow.OptionId);
+            if (row == null)
+            {
+                return;
+            }
+            cart.Remove(row);
+            await localStorage.SetItemAsync("cart", cart);
+            OnChange.Invoke();
+
+        }
     }
 }

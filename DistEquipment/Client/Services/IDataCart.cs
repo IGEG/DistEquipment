@@ -9,5 +9,7 @@ namespace DistEquipment.Client.Services
         Task AddToCart(ProductModel productModl);
 
         Task<List<CartRow>> GetAllCartRows();
+
+        Task DeleteRow(CartRow cartRow);
     }
 }
