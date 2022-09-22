@@ -2,6 +2,7 @@ using Blazored.LocalStorage;
 using Blazored.Toast;
 using DistEquipment.Client;
 using DistEquipment.Client.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -15,5 +16,10 @@ builder.Services.AddScoped<IDataCategory, DataCategory>();
 builder.Services.AddScoped<IDataCart, DataCart>();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddBlazoredToast();
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<AuthenticationStateProvider, AuthentificationProvider>();
+
+
 
 await builder.Build().RunAsync();

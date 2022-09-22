@@ -1,4 +1,6 @@
 ﻿@inject IDataCategory DataCategory
+@inject ILocalStorageService LocalStorage
+@inject AuthenticationStateProvider StateProvider
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -27,9 +29,18 @@
             }
             <li class="dropdown-divider"> </li>
             <div class="nav-item px-3">
+                <AuthorizeView>
+                    <NotAuthorized> 
               <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">
                  <span class="oi oi-account-login" aria-hidden="true"></span> Логин
               </NavLink>
+                   </NotAuthorized>
+                   <Authorized>
+                       <a class="nav-link" @onclick="Logout" style="cursor:pointer">
+                           <span class="oi oi-account-logout" aria-hidden="true"></span>
+                       </a>
+                   </Authorized>
+               </AuthorizeView>
              </div>
     </nav>
 </div>
@@ -48,7 +59,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-       Categories = await DataCategory.LoadCategory();
+        Categories = await DataCategory.LoadCategory();
+    }
+    private async  void Logout()
+    {
+         await LocalStorage.RemoveItemAsync("userName");
+         StateProvider.GetAuthenticationStateAsync();
     }
 }
 
