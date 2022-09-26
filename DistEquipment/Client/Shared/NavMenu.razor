@@ -64,7 +64,7 @@
     private async  void Logout()
     {
          await LocalStorage.RemoveItemAsync("userName");
-         StateProvider.GetAuthenticationStateAsync();
+        await StateProvider.GetAuthenticationStateAsync();
     }
 }
 

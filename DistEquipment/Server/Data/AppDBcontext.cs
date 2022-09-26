@@ -12,6 +12,7 @@ namespace DistEquipment.Server.Data
        public DbSet<Category> Categories { get; set; }
        public  DbSet<Product> Products { get; set; }
        public DbSet<ProductOption> ProductOptions { get; set; }
+       public DbSet<State> States { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
