@@ -2,6 +2,7 @@
 @page "/{categoryUrl}"
 @inject IDataCategory DataCategory
 @inject IDataProduct DataProduct
+@inject IDataState DataState
 
 <PageTitle>Дистилляторы растворителей UltraClean</PageTitle>
 
@@ -19,5 +20,9 @@
     protected override async Task OnParametersSetAsync()
     {
         await DataProduct.LoadProduct(CategoryUrl);
+        await DataState.AddVisit();
+        await DataState.GetVisits();
     }  
+
+    
 }
