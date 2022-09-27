@@ -29,5 +29,6 @@ namespace DistEquipment.Shared
         public DateTime? DateOfUpdate { get; set; }
 
         public List<ProductModel> ProductModels { get; set; } = new List<ProductModel>();
+        public int Views { get; set; }
     }
 }

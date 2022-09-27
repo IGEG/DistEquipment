@@ -22,6 +22,8 @@ namespace DistEquipment.Server.Data
         {
             
             Product product = await appDBcontext.Products.Include(o=>o.ProductModels).ThenInclude(p=>p.ProductOption).FirstOrDefaultAsync(p=>p.Id==Id);
+            product.Views++;
+            await appDBcontext.SaveChangesAsync();
             return product;
         }
 
