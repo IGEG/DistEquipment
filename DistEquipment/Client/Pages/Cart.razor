@@ -21,15 +21,21 @@ else
                         <div class="card-body">
                             <h5 class="card-title">@row.ProductName</h5>
                             <p class="card-text">@row.OptionName</p>
-                            <p class="card-text"><small class="text-muted">@row.Price Руб.</small></p>
+                            <p class="card-text"><small class="text-muted">@(row.Price*row.Quantity) Руб.</small></p>
                             <button class="btn btn-outline-secondary" @onclick="(()=>DeleteRow(row))">Удалить из корзины</button>
+                            <EditForm Model="row">
+                               <InputNumber id="quantity" @bind-Value="row.Quantity" class="form-control"/>
+                            </EditForm>
                         </div>
                     </div>
                 </div>
             </div>
         }
  <div style="padding:5px 5px 20px;">
-Итого (@cartRows.Count шт.): @cartRows.Sum(row=>row.Price) Руб.;
+Итого (@cartRows.Count шт.): @cartRows.Sum(row=>row.Price*row.Quantity) Руб.;
+ </div>
+ <div id="orderbutton">
+     <button class="btn btn-primary btn-lg" @onclick="CreateOrder">Отправить Заказ</button>
  </div>
 </div>
 }

@@ -19,16 +19,25 @@ namespace DistEquipment.Client.Services
             toastService = _toastService;
         }
 
-        public async Task AddToCart(ProductModel productModel)
+        public async Task AddToCart(CartRow cartRow)
         {
-            var cart = await localStorage.GetItemAsync<List<ProductModel>>("cart");
+            var cart = await localStorage.GetItemAsync<List<CartRow>>("cart");
             if (cart == null)
             {
-                cart = new List<ProductModel>();
+                cart = new List<CartRow>();
             }
-            cart.Add(productModel);
+            var sameRow = cart.First(x => x.ProductId == cartRow.ProductId && x.OptionId == cartRow.OptionId);
+            if (sameRow == null)
+            {
+                cart.Add(cartRow);
+            }
+            else
+            {
+                sameRow.Quantity += cartRow.Quantity;
+            }
+
             await localStorage.SetItemAsync("cart", cart);
-            var product = await dataProduct.GetProductById(productModel.ProductId);
+            var product = await dataProduct.GetProductById(cartRow.ProductId);
             toastService.ShowSuccess(product.Name, "Добавлено в корзину:");
             OnChange.Invoke();
 
@@ -37,41 +46,24 @@ namespace DistEquipment.Client.Services
         public async Task<List<CartRow>> GetAllCartRows()
         {
             var result = new List<CartRow>();
-            var cart = await localStorage.GetItemAsync<List<ProductModel>>("cart");
+            var cart = await localStorage.GetItemAsync<List<CartRow>>("cart");
             if (cart == null)
             {
                 return result;
             }
-            foreach (var item in cart)
-            {
-                var product = await dataProduct.GetProductById(item.ProductId);
-                var row = new CartRow
-                {
-                    ProductId = product.Id,
-                    ProductName = product.Name,
-                    Img = product.Images,
-                    OptionId = item?.ProductOptionId,
-                };
-                var model = product.ProductModels.FirstOrDefault(m => m.ProductOptionId == item?.ProductOptionId);
-                if (model != null)
-                {
-                    row.OptionName = model.ProductOption?.Name;
-                    row.Price = model.Price;
-                }
-                result.Add(row);
-            }
-            return result;
+            
+            return cart;
          
         }
 
         public async Task DeleteRow(CartRow cartRow)
         {
-            var cart = await localStorage.GetItemAsync<List<ProductModel>>("cart");
+            var cart = await localStorage.GetItemAsync<List<CartRow>>("cart");
             if (cart == null)
             {
                 return;
             }
-            var row = cart.FirstOrDefault(r => r.ProductId == cartRow.ProductId && r.ProductOptionId == cartRow.OptionId);
+            var row = cart.FirstOrDefault(r => r.ProductId == cartRow.ProductId && r.OptionId == cartRow.OptionId);
             if (row == null)
             {
                 return;
@@ -80,6 +72,12 @@ namespace DistEquipment.Client.Services
             await localStorage.SetItemAsync("cart", cart);
             OnChange.Invoke();
 
+        }
+
+        public async Task RemoveCart()
+        {
+           await localStorage.RemoveItemAsync("cart");
+            OnChange.Invoke();
         }
     }
 }

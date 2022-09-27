@@ -14,5 +14,6 @@ namespace DistEquipment.Shared
         public string? OptionName { get; set; }
         public decimal? Price { get; set; }
         public string? Img { get; set; }
+        public int Quantity { get; set; }
     }
 }

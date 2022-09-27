@@ -102,3 +102,11 @@ flex-direction:column;
     color:gray;
     text-align:left;
 }
+#quantity {
+    width:70px;
+    margin:2px;
+}
+#orderbutton {
+    text-align:center;
+    margin-top:10px;
+}

@@ -30,6 +30,11 @@
             </select>
         </div>
         }
+        <EditForm Model="cartRow">
+            <div class="form-group">
+                <InputNumber id="quantity" @bind-Value="cartRow.Quantity" class="form-control"/>
+            </div>
+        </EditForm>
         <button class="btn btn-primary m-2" @onclick="AddToCart"><i class="oi oi-cart">&nbsp;Добвить в корзину</i></button>
     </div>
 
@@ -42,6 +47,8 @@
     private int itemModelId = 1;
 
     private Product product = new Product();
+
+    private CartRow cartRow = new CartRow { Quantity = 1 };
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,7 +69,14 @@
 
     private async Task AddToCart()
     {
-        await dataCart.AddToCart(GetModelProduct());
+        var model = GetModelProduct();
+        cartRow.ProductId = model.ProductId;
+        cartRow.OptionId = model.ProductOptionId;
+        cartRow.ProductName = product.Name;
+        cartRow.OptionName = model.ProductOption.Name;
+        cartRow.Price = model.Price;
+        cartRow.Img = product.Images;
+        await dataCart.AddToCart(cartRow);
     }
 
 

@@ -6,10 +6,11 @@ namespace DistEquipment.Client.Services
     public interface IDataCart
     {
         event Action OnChange;
-        Task AddToCart(ProductModel productModl);
+        Task AddToCart(CartRow cart);
 
         Task<List<CartRow>> GetAllCartRows();
 
         Task DeleteRow(CartRow cartRow);
+        Task RemoveCart();
     }
 }
