@@ -1,18 +1,53 @@
 ﻿@page "/cart"
 
 @inject IDataCart dataCart
-
-<h3>Товары в корзине:</h3>
-@if (cartRows == null || cartRows.Count < 1)
-{ 
-<span>Корзина пуста</span>
-}
-else
+@if (!orderCreated)
 {
-<div>
-  @foreach (var row in cartRows)
- {
-            <div class="card mb-3" >
+    <h3>Товары в корзине:</h3>
+    @if (cartRows == null || cartRows.Count < 1)
+    {
+        <span>Корзина пуста</span>
+    }
+    else
+    {
+        <div>
+            @foreach (var row in cartRows)
+            {
+                <div class="card mb-3" >
+                    <div class="row g-0">
+                        <div class="col-md-4" style="max-width:150px; max-height:150px;">
+                            <img src="@row.Img" class="img-fluid rounded-start" alt="@row.ProductName">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@row.ProductName</h5>
+                                <p class="card-text">@row.OptionName</p>
+                                <p class="card-text"><small class="text-muted">@(row.Price * row.Quantity) Руб.</small></p>
+                                <button class="btn btn-outline-secondary" @onclick="(()=>DeleteRow(row))">Удалить из корзины</button>
+                                <EditForm Model="row">
+                                    <InputNumber id="quantity" @bind-Value="row.Quantity" class="form-control"/>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div style="padding:5px 5px 20px;">
+                Итого (@cartRows.Count шт.): @cartRows.Sum(row=>row.Price*row.Quantity) Руб.;
+            </div>
+            <div id="orderbutton">
+                <button class="btn btn-primary btn-lg" @onclick="CreateOrder">Отправить Заказ</button>
+            </div>
+        </div>
+    }
+}
+else{
+    <h3>Заказ отправлен!</h3>
+    <h4>Список товаров:</h4>
+    <div>
+        @foreach (var row in cartRows)
+        {
+            <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4" style="max-width:150px; max-height:150px;">
                         <img src="@row.Img" class="img-fluid rounded-start" alt="@row.ProductName">
@@ -21,28 +56,26 @@ else
                         <div class="card-body">
                             <h5 class="card-title">@row.ProductName</h5>
                             <p class="card-text">@row.OptionName</p>
-                            <p class="card-text"><small class="text-muted">@(row.Price*row.Quantity) Руб.</small></p>
-                            <button class="btn btn-outline-secondary" @onclick="(()=>DeleteRow(row))">Удалить из корзины</button>
-                            <EditForm Model="row">
-                               <InputNumber id="quantity" @bind-Value="row.Quantity" class="form-control"/>
-                            </EditForm>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    @(row.Price * row.Quantity) Руб.
+                                </small>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         }
- <div style="padding:5px 5px 20px;">
-Итого (@cartRows.Count шт.): @cartRows.Sum(row=>row.Price*row.Quantity) Руб.;
- </div>
- <div id="orderbutton">
-     <button class="btn btn-primary btn-lg" @onclick="CreateOrder">Отправить Заказ</button>
- </div>
-</div>
+        <div style="padding:5px 5px 20px;">
+            Итого (@cartRows.Count шт.): @cartRows.Sum(row=>row.Price*row.Quantity) Руб.;
+        </div>
+    </div>
 }
 
 
 @code {
     private List<CartRow> cartRows = new List<CartRow>();
+    private bool orderCreated = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -52,5 +85,10 @@ else
     {
         await dataCart.DeleteRow(row);
         cartRows = await dataCart.GetAllCartRows();
+    }
+    private async Task CreateOrder()
+    {
+        orderCreated = true;
+        await dataCart.RemoveCart();
     }
 }

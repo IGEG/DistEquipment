@@ -26,7 +26,7 @@ namespace DistEquipment.Client.Services
             {
                 cart = new List<CartRow>();
             }
-            var sameRow = cart.First(x => x.ProductId == cartRow.ProductId && x.OptionId == cartRow.OptionId);
+            var sameRow = cart.Find(x => x.ProductId == cartRow.ProductId && x.OptionId == cartRow.OptionId);
             if (sameRow == null)
             {
                 cart.Add(cartRow);
@@ -45,11 +45,11 @@ namespace DistEquipment.Client.Services
 
         public async Task<List<CartRow>> GetAllCartRows()
         {
-            var result = new List<CartRow>();
+   
             var cart = await localStorage.GetItemAsync<List<CartRow>>("cart");
             if (cart == null)
             {
-                return result;
+                return new List<CartRow>();
             }
             
             return cart;
@@ -63,7 +63,7 @@ namespace DistEquipment.Client.Services
             {
                 return;
             }
-            var row = cart.FirstOrDefault(r => r.ProductId == cartRow.ProductId && r.OptionId == cartRow.OptionId);
+            var row = cart.Find(r => r.ProductId == cartRow.ProductId && r.OptionId == cartRow.OptionId);
             if (row == null)
             {
                 return;
@@ -77,7 +77,7 @@ namespace DistEquipment.Client.Services
         public async Task RemoveCart()
         {
            await localStorage.RemoveItemAsync("cart");
-            OnChange.Invoke();
+           OnChange.Invoke();
         }
     }
 }
