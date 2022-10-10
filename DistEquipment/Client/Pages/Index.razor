@@ -6,10 +6,8 @@
 
 <PageTitle>Дистилляторы растворителей UltraClean</PageTitle>
 
-
-    <h2>UltraClean</h2>
-    <Products/>
-
+<FirstPage/>
+<Products/>
 
 @code{
     [Parameter]
@@ -22,7 +20,7 @@
         await DataProduct.LoadProduct(CategoryUrl);
         await DataState.AddVisit();
         await DataState.GetVisits();
-    }  
 
-    
+    }  
+  
 }
