@@ -7,5 +7,6 @@ namespace DistEquipment.Server.Data
          Task<List<Product>> GetAllProducts();
          Task<Product> GetProductbyId(int Id);
          Task<List<Product>> GetProductsByUrl(string Url);
+
     }
 }

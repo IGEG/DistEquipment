@@ -22,6 +22,7 @@ namespace DistEquipment.Shared
         public decimal? SpesialPrice { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
+        public int? Volume { get; set; }
         public bool IsOpen { get; set; }
         public bool IsClose { get; set; }
         public DateTime DateOfSaller { get; set; } = DateTime.Now;

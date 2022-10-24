@@ -14,6 +14,7 @@ namespace DistEquipment.Server.Data
        public DbSet<ProductOption> ProductOptions { get; set; }
        public DbSet<State> States { get; set; }
        public DbSet<Solvent> Solvents { get; set; }
+        public DbSet<Calculator> Calculators { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,6 +55,7 @@ namespace DistEquipment.Server.Data
                      BigDescription = "Дистиллятор растворителей ULtraCliean 20EX на 20 литров обладает компактным размером и эргономичным дизайном.На панели приборов удобно расположены тумблер для выбора температурного режима и таймер дистилляции. LED дисплей позволяет отображать оставшееся врем перегонки,общее врем работы дистиллятора. Специальный индикатор показывает в какой промежуток времени идет нагрев масла.",
                      Images = "https://www.solventrecyclingmachine.com/wp-content/uploads/2021/11/standard-solvent-recycling-unit.png",
                      URL = "UltraClean20Ex",
+                     Volume = 20,
                      CategoryId = 1
                  },
                   new Product
@@ -61,8 +63,7 @@ namespace DistEquipment.Server.Data
                       Id = 2,
                       Name = "Пакеты Rec-Bag 20 литров",
                       SmallDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX",
-                      BigDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX имеют плотную структуру, что позволяет их использовать при аккуратной работе более одного раза. Данные термопакеты обладают высокой термостойкостью, до 200 градусов Цельсия. Пакеты рек бэг изготовлены из специальных термостойких пластиков с гомогенной структурой.Термопакеты \"Rec Bag\" поставляются упаковкой по 50 штук. Использование термопакетов rec-bag актуально при дистилляции растворителей загрязненных красками, лаками, любыми твердыми частицами.",
-                      //Images = "https://developmentbeccaince896.zapwp.com/q:intelligent/retina:false/webp:false/w:1/url:https://www.beccainc.com/wp-content/uploads/2015/07/Recycling-Bag.jpg",
+                      BigDescription = "Пакеты Rec-Bag для дистиллятора ULtraCliean 20EX имеют плотную структуру, что позволяет их использовать при аккуратной работе более одного раза. Данные термопакеты обладают высокой термостойкостью, до 200 градусов Цельсия. Пакеты рек бэг изготовлены из специальных термостойких пластиков с гомогенной структурой.Термопакеты \"Rec Bag\" поставляются упаковкой по 50 штук. Использование термопакетов rec-bag актуально при дистилляции растворителей загрязненных красками, лаками, любыми твердыми частицами.",                    
                       Images = "Img/rec-bag30.png",
                       URL = "RecBag20Ex",
                       CategoryId = 2

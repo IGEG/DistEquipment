@@ -1,4 +1,5 @@
-﻿using DistEquipment.Shared;
+﻿using DistEquipment.Client.Shared;
+using DistEquipment.Shared;
 using System.Net.Http.Json;
 
 
@@ -34,5 +35,11 @@ namespace DistEquipment.Client.Services
             return await httpClient.GetFromJsonAsync<Product>($"api/Product/{Id}");
         }
 
+        public async Task<List<Product>> GetAllProductWithOutOptions()
+        {
+           return  await httpClient.GetFromJsonAsync<List<Product>>("api/Product");
+            
+         
+        }
     }
 }

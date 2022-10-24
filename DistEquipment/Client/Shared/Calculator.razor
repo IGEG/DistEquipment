@@ -1,36 +1,49 @@
-﻿<div class="container">
-    <h3 class="pt-3 text-center">КАЛЬКУЛЯТОР ОКУПАЕМОСТИ ДИСТИЛЛЯТОРА</h3>
-<form>
-  <div class="mb-3">
-            <select class="form-select" aria-label="Выбор модели дистиллятора">
+﻿
+<div class="card mx-auto mt-10" style="width: 50rem;">
+    <div class="card-header">
+           <h3 class="pt-3 text-center">КАЛЬКУЛЯТОР ОКУПАЕМОСТИ ДИСТИЛЛЯТОРА</h3>
+    </div>
+ <div class="card-body">
+            <div class="form-group mt-2">
+<label>Объем дистиллятора</label>
+            <select class="form-select" @bind="@Price">
                 <option selected>Выбрать</option>
-                <option value="1">Дистиллятор 20 литров</option>
-                <option value="2">Дистиллятор 60 литров</option>
-                <option value="3">Дистиллятор 90 литров</option>
-                <option value="4">Дистиллятор 125 литров</option>
-                <option value="5">Дистиллятор 250 литров</option>
-                <option value="6">Дистиллятор 450 литров</option>
+                <option value="20">Дистиллятор 20 литров</option>
+                <option value="60">Дистиллятор 60 литров</option>
+                <option value="90">Дистиллятор 90 литров</option>
+                <option value="125">Дистиллятор 125 литров</option>
+                <option value="250">Дистиллятор 250 литров</option>
+                <option value="450">Дистиллятор 450 литров</option>
             </select>
-  </div>
-  <div class="mb-3">
-            <select class="form-select" aria-label="Выбор марки используемого растворителя">
-                <option selected>Выбрать</option>
-                <option value="1">Ацетон</option>
-                <option value="2">Растворитель 646</option>
-                <option value="3">Растворитель Р4(Р5)</option>
-                <option value="4">Нефрас 80/120</option>
-                <option value="5">Уайт-Спирит</option>
-                <option value="6">Дистиллятор 450 литров</option>
-            </select>
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+            </div>
+            <div class="form-group mt-2">
+            <label>Марка растворителя</label>
+                <select class="form-select" @bind="@PriceSolvent">
+                    <option selected>Выбрать</option>
+                    <option value="1">Ацетон</option>
+                    <option value="2">Растворитель 646</option>
+                    <option value="3">Растворитель Р4(Р5)</option>
+                    <option value="4">Нефрас 80/120</option>
+                    <option value="5">Уайт-Спирит</option>
+                    <option value="6">Дистиллятор 450 литров</option>
+                </select>
+            </div>
+            <button  class="btn btn-primary" @onclick="HandleValidSubmit">Submit</button>
+            <div class="card-footer mt-5">
+                <h3>@Sum</h3>
+            </div>
+ </div>
+
 </div>
 
 @code {
-
+    int Volume = 0;
+    decimal Price = 0;
+    decimal PriceSolvent = 0;
+    decimal Sum = 0;
+    private void HandleValidSubmit()
+    {
+        Sum = Price * PriceSolvent;
+    }
+   
 }

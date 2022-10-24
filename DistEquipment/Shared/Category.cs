@@ -16,7 +16,7 @@ namespace DistEquipment.Shared
 
         public string? Img { get; set; }
         public string Url { get; set; }
-        //public List<Product>? Products { get; set; }
+     
 
     }
 }

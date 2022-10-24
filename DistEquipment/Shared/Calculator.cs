@@ -10,8 +10,8 @@ namespace DistEquipment.Shared
     {
         public int Id { get; set; }
         public int Hours { get; set; }
-        public  ProductModel ProductModel { get; set; }
-        public Solvent Solvent { get; set; }
+        public  double PriceDistillar { get; set; }
+        public double PriceSolvent { get; set; }
 
     }
 }
