@@ -14,30 +14,34 @@ namespace DistEquipment.Client.Services
         public async Task<int> Calculate(int volume, decimal price, int hour)
         {
             //затраты на утилизацию
-           decimal disposalSolvent = 15;
+            decimal disposalSolvent = 15;
             //затраты на электроэнергию
             decimal disposalElectro = 50;
-
-          
             
            List<Product> products = await _dataProduct.GetAllDistillars();
            
-           Product? product = products?.FirstOrDefault(p => p.Volume == volume);
+           Product? product = products?.FirstOrDefault(p => p.Volume == volume);            
 
             //затраты на 1 литр нового сольвента
-            decimal expension = Decimal.Multiply(price,disposalSolvent);
-            Console.Write($"затраты на 1 литр нового сольвента{expension}");
+            decimal expension = Decimal.Add(price,disposalSolvent);
+
             //стоимость дистиллятора
             decimal? priceDistillar = product?.ProductModels[0].Price;
-            Console.WriteLine(priceDistillar);
+
+            decimal DistillarVolume = Convert.ToDecimal(volume);
+            Console.WriteLine($"DistillarVolume{DistillarVolume}");
+
             //затраты на 1 литр переработанного растворителя
-            decimal recicleExpension = Decimal.Multiply((Decimal.Add(Decimal.Multiply(price, 0.05m), disposalElectro)), (Convert.ToDecimal(volume)));
-            Console.WriteLine(recicleExpension);
+            decimal recicleExpension = (Decimal.Add((Decimal.Multiply(price, 0.05m)), disposalElectro));
+            Console.Write($"затраты на 1 литр переработанного растворителя {recicleExpension}");
             //затраты в день без дистиллятора
-            decimal expensionPerDay = Decimal.Multiply(Decimal.Multiply(expension, (Convert.ToDecimal(volume))), (Convert.ToDecimal(CountOfChanged(hour))));
-            Console.WriteLine(expensionPerDay);
+            decimal DistillarHours = Convert.ToDecimal(hour);
+            Console.WriteLine($"DistillarHours{DistillarHours}");
+
+            decimal expensionPerDay = Decimal.Multiply((Decimal.Multiply(expension, DistillarVolume)), DistillarHours);
+            Console.WriteLine($"expensionPerDay{expensionPerDay}");
             //затраты в день с дистиллятором
-            decimal expensionDistillarPerDay = Decimal.Multiply(Decimal.Multiply(recicleExpension, (Convert.ToDecimal(volume))), (Convert.ToDecimal(CountOfChanged(hour))));
+            decimal expensionDistillarPerDay = Decimal.Multiply(Decimal.Multiply(recicleExpension, DistillarVolume), (Convert.ToDecimal(hour))));
             Console.WriteLine(expensionDistillarPerDay);
             //экономия в день
             decimal saveMonerPerDay = Decimal.Subtract(expensionPerDay, expensionDistillarPerDay);
@@ -48,14 +52,6 @@ namespace DistEquipment.Client.Services
                 return Convert.ToInt32(Decimal.Divide(finalPrice, saveMonerPerDay));
             else return 0;
 
-        }
-
-        //количество смен по часам
-        public int CountOfChanged(int hour)
-        {
-            if (hour <= 8) return 1;
-            else if (hour > 8 && hour <= 16) return 2;
-            else return 3;
         }
 
       

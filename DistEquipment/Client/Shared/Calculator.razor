@@ -1,63 +1,71 @@
 ﻿@inject IDataSolvent DataSolvent
 @inject IDataProduct DataProduct
 @inject ICalculator calculator
+`
 
 <div class="card mx-auto m-10 text-center" style="max-width: 50rem; ">
+      <EditForm Model="@modelFormCalculator" OnInvalidSubmit="HandleValidSubmit">
     <div class="card-header">
            <h3 class="pt-3 text-center">КАЛЬКУЛЯТОР ОКУПАЕМОСТИ ДИСТИЛЛЯТОРА</h3>   
     </div>
- <div class="card-body ">
+ <div class="card-body">
+     <DataAnnotationsValidator/>
+     <ValidationSummary/>
         <div class="form-group mt-2">
-            <label class="align-content-center">Выбор модели дистиллятора</label>
-            <select class="form-select" @bind="@Volume">
+            <label>Выбор модели дистиллятора</label>
+            <InputSelect class="form-control" @bind-Value="modelFormCalculator.Volume">
+                    <option selected>Выбрать</option>
                 @foreach (var item in Products)
                 {
                     <option value="@item.Volume">@item.Name</option>
                 }
-            </select>
+            </InputSelect>
         </div>
         <div class="form-group mt-2">
             <label>Марка растворителя</label>
-                <select class="form-select" @bind="@PriceSolvent" >
+                <InputSelect class="form-control" @bind-Value="modelFormCalculator.PriceSolvent" >
+                    <option selected>Выбрать</option>
                     @foreach(var item in Solvents)
                     {
                     <option value="@item.Price">@item.Name</option>
                     }
-                </select>
+                </InputSelect>
         </div>
-        <div class="m-2">
+         <div class="form-group mt-2">
             <label class="m-2">Режим работы</label>
-            <select class="form-select m-2" @bind="@Hours">
+            <InputSelect class="form-select m-2" @bind-Value="modelFormCalculator.Hours">
                 <option selected>Выбрать</option>
-                <option value="8">Одна смена 8 часов</option>
-                <option value="16">Две смены 16 часов</option>
-                <option value="24">Непрерывная работа 24 часа</option> 
-            </select>
+                <option value= "1">Одна смена 8 часов</option>
+                <option value= "2">Две смены 16 часов</option>
+                <option value= "3">Непрерывная работа 24 часа</option> 
+            </InputSelect>
          </div>     
  </div>
-            <div class="card-footer mt-2">
+            <div class="card-footer m-2">
                 <div >
-                <button class="btn btn-primary "  @onclick="HandleValidSubmit">Посчитать</button>
+                <button class="btn btn-primary" type="submit">Посчитать</button>
                 </div>
-                <h3 class="mt-2 "> Дней: @Sum</h3>
+                <h3 class="mt-2 "> Дней: @Days</h3>
             </div>
-
+  </EditForm>
 </div>
 
 @code {
-    int Volume = 0;
-    decimal PriceSolvent = 0;
-    int Sum ;
-    int Hours = 0;
+
+    int Days ;
+
     private List<Solvent> Solvents = new List<Solvent>();
     private List<Product> Products = new List<Product>();
+    ModelFormCalculator modelFormCalculator;
 
     private async Task HandleValidSubmit()
     {
-        Sum = await  calculator.Calculate(Volume,PriceSolvent, Hours);
+
+        Days = await calculator.Calculate(modelFormCalculator.Volume, modelFormCalculator.PriceSolvent, modelFormCalculator.Hours);
     }
     protected override async Task OnInitializedAsync()
     {
+        modelFormCalculator = new ModelFormCalculator();
         Solvents = await DataSolvent.GetAllSolvents();
         Products = await DataProduct.GetAllDistillars();
     }
