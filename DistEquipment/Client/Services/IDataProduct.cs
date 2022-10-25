@@ -8,7 +8,7 @@ namespace DistEquipment.Client.Services
         List<Product> Products { get; set; }
         Task LoadProduct(string Url=null);
 
-        Task<List<Product>> GetAllProductWithOutOptions();
+        Task<List<Product>> GetAllDistillars();
         Task<Product> GetProductById(int Id);
     }
 }

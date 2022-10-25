@@ -35,10 +35,13 @@ namespace DistEquipment.Client.Services
             return await httpClient.GetFromJsonAsync<Product>($"api/Product/{Id}");
         }
 
-        public async Task<List<Product>> GetAllProductWithOutOptions()
+        public async Task<List<Product>> GetAllDistillars()
         {
-           return  await httpClient.GetFromJsonAsync<List<Product>>("api/Product");
-            
+           List<Product> Products =  await httpClient.GetFromJsonAsync<List<Product>>("api/Product");
+            if (Products != null)
+                return Products.FindAll(p => p.CategoryId == 1);
+            else throw new Exception("нет данных по продукту");
+          
          
         }
     }

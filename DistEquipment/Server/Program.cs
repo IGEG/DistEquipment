@@ -13,6 +13,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<IDataProduct,DataProduct>();
 builder.Services.AddScoped<IDataCategory, DataCategory>();
 builder.Services.AddScoped<IDataState, DataState>();
+builder.Services.AddScoped<IDataSolvent, DataSolvent>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
