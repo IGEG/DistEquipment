@@ -49,12 +49,13 @@
                 </div>
             </div>
   </EditForm>
-  <h3 class="mt-2 "> Дней: @Days</h3>
+  <h3 class="mt-2 " style="display:@displayDays"> Оборудование окупится за: @days дней</h3>
 </div>
 
 @code {
 
-    private int Days = 0 ;
+    private int days = 0 ;
+    private string displayDays = "none";
 
     private List<Solvent> Solvents = new List<Solvent>();
     private List<Product> Products = new List<Product>();
@@ -63,7 +64,9 @@
 
     private async Task HandleValidSubmit()
     {
-        Days = await calculator.Calculate(modelFormCalculator);
+
+        days = await calculator.Calculate(modelFormCalculator);
+        displayDays = "block";
     }
     protected override async Task OnInitializedAsync()
     {
