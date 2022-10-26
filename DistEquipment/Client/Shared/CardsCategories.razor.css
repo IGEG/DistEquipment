@@ -1,0 +1,31 @@
+﻿
+.product-img {
+    max-height: 250px;
+    max-width: 250px;
+    border-radius: 6px;
+    margin-inline-end: 20px;
+    transition: transform .2s;
+  
+}
+
+.product-img-big {
+    max-height: 350px;
+    max-width: 350px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.product-img-big-wrapper {
+    max-height: 500px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.product-img:hover {
+    transform: scale(1.1);
+}
+.first-title {
+    text-align:center;
+    margin:3px;
+}
+
