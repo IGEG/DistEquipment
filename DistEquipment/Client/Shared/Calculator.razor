@@ -1,10 +1,11 @@
 ﻿@inject IDataSolvent DataSolvent
 @inject IDataProduct DataProduct
 @inject ICalculator calculator
+@inject IDataWork DataWork
 `
 
 <div class="card mx-auto m-10 text-center" style="max-width: 50rem; ">
-      <EditForm Model="@modelFormCalculator" OnInvalidSubmit="HandleValidSubmit">
+      <EditForm Model="@modelFormCalculator" OnValidSubmit="HandleValidSubmit">
     <div class="card-header">
            <h3 class="pt-3 text-center">КАЛЬКУЛЯТОР ОКУПАЕМОСТИ ДИСТИЛЛЯТОРА</h3>   
     </div>
@@ -32,12 +33,13 @@
                 </InputSelect>
         </div>
          <div class="form-group mt-2">
-            <label class="m-2">Режим работы</label>
-            <InputSelect class="form-select m-2" @bind-Value="modelFormCalculator.Hours">
+            <label>Режим работы</label>
+            <InputSelect class="form-control" @bind-Value="modelFormCalculator.Hours">
                 <option selected>Выбрать</option>
-                <option value= "1">Одна смена 8 часов</option>
-                <option value= "2">Две смены 16 часов</option>
-                <option value= "3">Непрерывная работа 24 часа</option> 
+                    @foreach(var item in Works)
+                    {
+                    <option value="@item.Count">@item.Name</option>
+                    }
             </InputSelect>
          </div>     
  </div>
@@ -45,29 +47,30 @@
                 <div >
                 <button class="btn btn-primary" type="submit">Посчитать</button>
                 </div>
-                <h3 class="mt-2 "> Дней: @Days</h3>
             </div>
   </EditForm>
+  <h3 class="mt-2 "> Дней: @Days</h3>
 </div>
 
 @code {
 
-    int Days ;
+    private int Days = 0 ;
 
     private List<Solvent> Solvents = new List<Solvent>();
     private List<Product> Products = new List<Product>();
+    private List<Work> Works = new List<Work>();
     ModelFormCalculator modelFormCalculator;
 
     private async Task HandleValidSubmit()
     {
-
-        Days = await calculator.Calculate(modelFormCalculator.Volume, modelFormCalculator.PriceSolvent, modelFormCalculator.Hours);
+        Days = await calculator.Calculate(modelFormCalculator);
     }
     protected override async Task OnInitializedAsync()
     {
         modelFormCalculator = new ModelFormCalculator();
         Solvents = await DataSolvent.GetAllSolvents();
         Products = await DataProduct.GetAllDistillars();
+        Works = await DataWork.GetWorks();
     }
 
 

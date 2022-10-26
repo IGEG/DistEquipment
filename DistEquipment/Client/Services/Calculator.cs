@@ -1,5 +1,6 @@
-﻿using DistEquipment.Shared;
-using System.Collections.Generic;
+﻿using DistEquipment.Client.Models;
+using DistEquipment.Shared;
+
 
 namespace DistEquipment.Client.Services
 {
@@ -11,15 +12,21 @@ namespace DistEquipment.Client.Services
         {
             _dataProduct = dataProduct;
         }
-        public async Task<int> Calculate(int volume, decimal price, int hour)
+        public async Task<int> Calculate(ModelFormCalculator modelFormCalculator)
         {
             //затраты на утилизацию
             decimal disposalSolvent = 15;
             //затраты на электроэнергию
             decimal disposalElectro = 50;
-            
-           List<Product> products = await _dataProduct.GetAllDistillars();
            
+
+            // получаем данные для расчета
+            int volume = modelFormCalculator.Volume;
+            decimal price = modelFormCalculator.PriceSolvent;
+            int hour = modelFormCalculator.Hours;
+
+            //данные по выбранному дистиллятору
+           List<Product> products = await _dataProduct.GetAllDistillars(); 
            Product? product = products?.FirstOrDefault(p => p.Volume == volume);            
 
             //затраты на 1 литр нового сольвента
@@ -28,29 +35,29 @@ namespace DistEquipment.Client.Services
             //стоимость дистиллятора
             decimal? priceDistillar = product?.ProductModels[0].Price;
 
-            decimal DistillarVolume = Convert.ToDecimal(volume);
-            Console.WriteLine($"DistillarVolume{DistillarVolume}");
-
             //затраты на 1 литр переработанного растворителя
+            decimal DistillarVolume = Convert.ToDecimal(volume);
             decimal recicleExpension = (Decimal.Add((Decimal.Multiply(price, 0.05m)), disposalElectro));
-            Console.Write($"затраты на 1 литр переработанного растворителя {recicleExpension}");
+
+           
             //затраты в день без дистиллятора
             decimal DistillarHours = Convert.ToDecimal(hour);
-            Console.WriteLine($"DistillarHours{DistillarHours}");
-
-            decimal expensionPerDay = Decimal.Multiply((Decimal.Multiply(expension, DistillarVolume)), DistillarHours);
-            Console.WriteLine($"expensionPerDay{expensionPerDay}");
+            //затраты на целы бак чистого растворителя
+            decimal allReciclExpension = Decimal.Multiply(expension, DistillarVolume);
+            decimal expensionPerDay = Decimal.Multiply(allReciclExpension, DistillarHours);
+            
             //затраты в день с дистиллятором
-            decimal expensionDistillarPerDay = Decimal.Multiply(Decimal.Multiply(recicleExpension, DistillarVolume), (Convert.ToDecimal(hour))));
-            Console.WriteLine(expensionDistillarPerDay);
+            decimal allDutyReciclExpension = Decimal.Multiply(recicleExpension, DistillarVolume);
+            decimal expensionDistillarPerDay = Decimal.Multiply(allDutyReciclExpension, DistillarHours);
+           
             //экономия в день
             decimal saveMonerPerDay = Decimal.Subtract(expensionPerDay, expensionDistillarPerDay);
-            Console.WriteLine(saveMonerPerDay);
+         
             //окупаемость установки
             decimal finalPrice = priceDistillar ?? 0;
-            if (finalPrice != 0)
-                return Convert.ToInt32(Decimal.Divide(finalPrice, saveMonerPerDay));
-            else return 0;
+            decimal daysPerCosts = Decimal.Divide(finalPrice, saveMonerPerDay);
+            int days =  Convert.ToInt32(daysPerCosts);
+            return days;
 
         }
 

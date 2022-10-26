@@ -15,6 +15,7 @@ namespace DistEquipment.Server.Data
        public DbSet<State> States { get; set; }
        public DbSet<Solvent> Solvents { get; set; }
         public DbSet<Calculator> Calculators { get; set; }
+        public DbSet<Work> Works { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,6 +41,10 @@ namespace DistEquipment.Server.Data
                 new Solvent { Id = 17, Name = "Р4(Р5)", Price = 220.00m },
                 new Solvent { Id = 18, Name = "Дихлорметан", Price = 600.00m }
                 );
+            modelBuilder.Entity<Work>().HasData(
+              new Work { Id =1, Count = 1, Name = "Одна смена 8 часов" },
+              new Work {Id=2, Count = 2, Name = "Две смены 16 часов" },
+              new Work {Id=3, Count = 3, Name = "Непрерывная работа 24 часа" });
 
             modelBuilder.Entity<Category>().HasData(
                  new Category { IdCategory = 1, Name = "Дистилляторы", Img = "oi oi-cog", Url = "distillars", Description = "Оборудование для регенерации растворителей" },

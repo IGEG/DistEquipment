@@ -11,4 +11,6 @@ namespace DistEquipment.Client.Models
         [Required(ErrorMessage ="Выберете режим работы")]
         public int Hours { get; set; }
     }
+
+ 
 }

@@ -17,6 +17,7 @@ builder.Services.AddScoped<IDataCart, DataCart>();
 builder.Services.AddScoped<IDataState, DataState>();
 builder.Services.AddScoped<IDataSolvent, DataSolvent>();
 builder.Services.AddScoped<ICalculator, Calculator>();
+builder.Services.AddScoped<IDataWork, DataWork>();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddBlazoredToast();
 builder.Services.AddOptions();
