@@ -3,31 +3,30 @@
 
 @foreach (var item in ProductItems)
 {
-<div class="card mb-3" style="max-width: 840px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-         <a href="/product/@item.Id">
-   <img  class="product-img" src="@item.Images" alt="@item.Name">
-         </a>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
+    <div class="card mb-3" style="max-width: 840px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <a href="/product/@item.Id">
+                    <img  class="product-img" src="@item.Images" alt="@item.Name">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
                     <a href="/product/@item.Id" style="text-decoration: none">
-        <h5 class="card-title">@item.Name</h5>
-           </a>
-       <p class="card-text">@item.SmallDescription</p>
-       <p class="card-text"><small class="price">Цена: @GetPrice(item) Руб.</small></p>
-      </div>
+                        <h5 class="card-title">@item.Name</h5>
+                    </a>
+                    <p class="card-text">@item.SmallDescription</p>
+                    <p class="card-text"><small class="price">Цена: @GetPrice(item) Руб.</small></p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
 }
 @code {
     [Parameter]
     public string CategoryUrl { get; set; }
 
-    private List<Product> ProductItems;
+    private List<Product> ProductItems = new List<Product>();
 
     protected override async Task OnInitializedAsync()
     {

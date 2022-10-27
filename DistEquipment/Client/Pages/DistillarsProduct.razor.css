@@ -1,0 +1,33 @@
+﻿.heder {
+}
+
+.image {
+    max-height: 450px;
+    max-width: 550px;
+    margin: 5px;
+}
+
+.header-tyttle {
+    text-align: center;
+    margin: 5px;
+}
+
+.header-body {
+    text-align: left;
+    margin: 5px;
+    text-align: center;
+}
+
+p {
+    text-indent: 25px;
+    margin: 5px;
+    text-align: left;
+}
+
+h5 {
+    margin: 10px;
+}
+
+.product {
+    margin: 10px;
+}
