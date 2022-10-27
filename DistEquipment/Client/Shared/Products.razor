@@ -1,8 +1,7 @@
 ﻿@inject IDataProduct DataProduct
-@implements IDisposable
 
 
-@foreach (var item in DataProduct.Products)
+@foreach (var item in ProductItems)
 {
 <div class="card mb-3" style="max-width: 840px;">
   <div class="row g-0">
@@ -25,14 +24,16 @@
 
 }
 @code {
-    protected override void OnInitialized()
+    [Parameter]
+    public string CategoryUrl { get; set; }
+
+    private List<Product> ProductItems;
+
+    protected override async Task OnInitializedAsync()
     {
-        DataProduct.OnChange += StateHasChanged;
+        ProductItems = await DataProduct.LoadProduct(CategoryUrl);
     }
-    public void Dispose()
-    {
-        DataProduct.OnChange -= StateHasChanged;
-    }
+
 
     private string GetPrice(Product product)
     {

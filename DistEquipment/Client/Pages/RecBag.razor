@@ -1,0 +1,18 @@
+﻿@page "/Rec-Bag"
+
+@inject IDataState DataState
+
+<h3>RecBag</h3>
+<Products CategoryUrl="Rec-Bag"/>
+
+@code {
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await DataState.AddVisit();
+        await DataState.GetVisits();
+      
+    }
+
+}

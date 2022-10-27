@@ -1,0 +1,14 @@
+﻿@page   "/distillars"
+@inject IDataState DataState
+
+<h3>DistillarsProduct</h3>
+<Products CategoryUrl="distillars"/>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await DataState.AddVisit();
+        await DataState.GetVisits();
+    }
+
+}
