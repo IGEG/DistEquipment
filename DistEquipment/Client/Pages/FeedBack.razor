@@ -1,0 +1,40 @@
+﻿@page "/feedback"
+@using System.Net.Mail
+
+<h3>FeedBack</h3>
+
+<button class="btn btn-primary m-5" @onclick="SendMessage">отправить письмо</button>
+<br />
+<span>@Message</span>
+
+@code {
+    private string Message { get; set; }
+    private void SendMessage()
+    {
+        try
+        {
+            using (MailMessage mail = new MailMessage())
+            {
+                mail.From = new MailAddress("");
+                mail.To.Add("");
+                mail.Subject = "subjects";
+                mail.Body = "<h1>this is body</h1>";
+                mail.IsBodyHtml = true;
+
+                using (SmtpClient smtp = new SmtpClient("", 587))
+                {
+                    smtp.Credentials = new System.Net.NetworkCredential("", "");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+                    Message = "mail sent";
+                }
+            }
+
+        }
+        catch(Exception ex)
+        {
+            Message = ex.Message;
+        }
+    }
+
+}
