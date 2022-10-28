@@ -1,4 +1,5 @@
 using DistEquipment.Server.Data;
+using DistEquipment.Server.Services;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ builder.Services.AddScoped<IDataCategory, DataCategory>();
 builder.Services.AddScoped<IDataState, DataState>();
 builder.Services.AddScoped<IDataSolvent, DataSolvent>();
 builder.Services.AddScoped<IDataWork, DataWork>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
