@@ -18,6 +18,7 @@ builder.Services.AddScoped<IDataState, DataState>();
 builder.Services.AddScoped<IDataSolvent, DataSolvent>();
 builder.Services.AddScoped<ICalculator, Calculator>();
 builder.Services.AddScoped<IDataWork, DataWork>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddBlazoredToast();
 builder.Services.AddOptions();

@@ -1,4 +1,7 @@
-﻿<div class="card mx-auto m-10 text-center border-secondary" style="max-width: 50rem; ">
+﻿@inject IEmailService EmailService
+@inject NavigationManager NavigationManager
+
+<div class="card mx-auto m-10 text-center border-secondary" style="max-width: 50rem; ">
 <EditForm Model="feedBackForm" OnValidSubmit="HandleSendForm">
    
         <div class="card-header border-secondary">
@@ -44,6 +47,8 @@
     FeedBackForm feedBackForm = new FeedBackForm();
     void HandleSendForm()
     {
+        EmailService.PostFeedBackForm(feedBackForm);
+        NavigationManager.NavigateTo("/",false);
     }
 
 }
