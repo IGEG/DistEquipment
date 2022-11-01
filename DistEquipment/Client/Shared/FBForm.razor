@@ -1,4 +1,10 @@
-﻿<EditForm Model="feedBackForm" OnValidSubmit="HandleSendForm">
+﻿<div class="card mx-auto m-10 text-center border-secondary" style="max-width: 50rem; ">
+<EditForm Model="feedBackForm" OnValidSubmit="HandleSendForm">
+   
+        <div class="card-header border-secondary">
+            <h3 class="pt-3 text-center">ФОРМА ОБРАТНОЙ СВЯЗИ</h3>
+        </div>
+         <div class="card-body">
     <div hidden>
         <InputText  @bind-Value="feedBackForm.PageName">@URLNamePage</InputText>
     </div>
@@ -22,8 +28,14 @@
         <label>Сообщение</label>
         <InputTextArea class="form-control" @bind-Value="feedBackForm.Message"></InputTextArea>
     </div>
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+         </div>
+          <div class="card-footer m-2 border-secondary">
     <button type="submit" class="btn btn-primary">Отправить</button>
+          </div>
 </EditForm>
+</div>
 
 @code {
     [Parameter]
