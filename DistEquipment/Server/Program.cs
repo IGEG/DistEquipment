@@ -19,7 +19,6 @@ builder.Services.AddScoped<IDataState, DataState>();
 builder.Services.AddScoped<IDataSolvent, DataSolvent>();
 builder.Services.AddScoped<IDataWork, DataWork>();
 builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<IConvertFormBodyToEmail, ConvertFormBodyToEmail>();
 
 var app = builder.Build();
 

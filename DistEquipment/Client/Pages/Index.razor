@@ -9,18 +9,17 @@
 <FirstPage/>
 <CardsCategories/>
 <Calculator/>
-@*<Products/>*@
+
 
 
 @code{
-    //[Parameter]
-    //public string CategoryUrl { get; set; }
+
 
     private Category category = null;
 
     protected override async Task OnParametersSetAsync()
     {
-        //await DataProduct.LoadProduct(CategoryUrl);
+
         await DataState.AddVisit();
         await DataState.GetVisits();
 

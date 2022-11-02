@@ -2,16 +2,16 @@
 
 namespace DistEquipment.Server.Services
 {
-    public class ConvertFormBodyToEmail : IConvertFormBodyToEmail
+    public static class ConvertFormBodyToEmail 
     {
-        public string GetString(FeedBackForm feedBackForm)
+        public static string GetString( this FeedBackForm feedBackForm)
         {
-            return $"ФОРМА ОБРАТНОЙ СВЯЗИ:\t" +
-                $" Имя клиента : {feedBackForm.Name} \t " +
-                $" Название компании : {feedBackForm.CompanyName} \t " +
-                $" Номер телефона : {feedBackForm.TelephoneNumber} \t " +
-                $" Почта : {feedBackForm.Email} \t " +
-                $" Сообщение : {feedBackForm.Message} \t ";
+            return  $"<div> <h1>ФОРМА ОБРАТНОЙ СВЯЗИ:</h1> </div>" +
+                $" <div> <h3>Имя клиента :{feedBackForm.Name} </h3></div>" +
+                  $"<h3>Название компании :{feedBackForm.CompanyName} </h3>" +
+                    $"<h3>Номер телефона :{feedBackForm.TelephoneNumber} </h3>" +
+                      $"<h3>Почта :{feedBackForm.Email} </h3>" +
+                        $"<h3>Сообщение :{feedBackForm.Message} </h3>"; 
 
         }
     }

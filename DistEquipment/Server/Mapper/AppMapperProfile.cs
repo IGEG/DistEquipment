@@ -12,9 +12,9 @@ namespace DistEquipment.Server.Mapper
         public AppMapperProfile()
         {
          
-            CreateMap<FeedBackForm, Email>().ForMember(e => e.From, f => f.MapFrom(item => $"{item.Name}"))
-            .ForMember(e => e.Subject, f => f.MapFrom(item => $"{item.Name}"))
-            .ForMember(e => e.Body, f => f.MapFrom(item => $"{item.Name}"));
+            CreateMap<FeedBackForm, Email>().ForMember(e => e.From, f => f.MapFrom(item => $"{item.PageName}"))
+            .ForMember(e => e.Subject, f => f.MapFrom(item => $"{item.PageName}"))
+            .ForMember(e => e.Body, f => f.MapFrom(item => $"{item.GetString()}"));
             
         }
     }
