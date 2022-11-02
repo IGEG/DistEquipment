@@ -18,6 +18,7 @@ builder.Services.AddScoped<IDataCategory, DataCategory>();
 builder.Services.AddScoped<IDataState, DataState>();
 builder.Services.AddScoped<IDataSolvent, DataSolvent>();
 builder.Services.AddScoped<IDataWork, DataWork>();
+builder.Services.AddScoped<IDataNews, DataNews>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
