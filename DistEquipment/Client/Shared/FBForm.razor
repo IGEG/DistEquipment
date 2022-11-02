@@ -5,29 +5,29 @@
 <div class="card mx-auto m-10 text-center border-secondary" style="max-width: 50rem; ">
 <EditForm Model="feedBackForm" OnValidSubmit="HandleSendForm">
    
-        <div class="card-header border-secondary">
+        <div class="card-header border-secondary bg-opacity-50">
             <h3 class="pt-3 text-center">ФОРМА ОБРАТНОЙ СВЯЗИ</h3>
         </div>
          <div class="card-body">
     <div class="form-group">
         <label>Название компании</label>
-        <InputText  class="form-control"@bind-Value="feedBackForm.CompanyName"></InputText>
+                <InputText class="form-control border-secondary" @bind-Value="feedBackForm.CompanyName"></InputText>
     </div>
     <div class="form-group">
         <label>Имя </label>
-        <InputText class="form-control" @bind-Value="feedBackForm.Name"></InputText>
+        <InputText class="form-control border-secondary" @bind-Value="feedBackForm.Name"></InputText>
     </div>
     <div class="form-group">
         <label>Контактный номер телефона</label>
-        <InputText class="form-control" @bind-Value="feedBackForm.TelephoneNumber"></InputText>
+        <InputText class="form-control border-secondary " @bind-Value="feedBackForm.TelephoneNumber"></InputText>
     </div>
     <div class="form-group">
         <label>Электронная почта</label>
-        <InputText class="form-control" @bind-Value="feedBackForm.Email"></InputText>
+        <InputText class="form-control border-secondary" @bind-Value="feedBackForm.Email"></InputText>
     </div>
     <div class="form-group">
         <label>Сообщение</label>
-        <InputTextArea class="form-control" @bind-Value="feedBackForm.Message"></InputTextArea>
+                <InputTextArea class="form-control border-secondary" @bind-Value="feedBackForm.Message"></InputTextArea>
     </div>
             <DataAnnotationsValidator />
             <ValidationSummary />
