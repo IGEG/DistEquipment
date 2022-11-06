@@ -1,24 +1,29 @@
 ﻿@page "/news"
 @inject IDataNews DataNews
 
-
-<h3>News</h3>
+<div class="header">
+<h3>Новости</h3>
+</div>
 <div>
     @foreach(var item in NewsCard)
     {
-    <div>
-        @item.Image
-    </div> 
-    <div>
-        @item.Title
-    </div>
-        <div>
-            <h3>@item.SmallDescription</h3>
+        <div class="card mb-3" style="max-width: 840px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <a href="/news/@item.UrlName">
+                        <img class="product-img" src="@item.Image" alt="@item.Title">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a href="/news/@item.UrlName" style="text-decoration: none">
+                            <h5 class="card-title">@item.Title</h5>
+                        </a>
+                        <p class="card-text">@item.SmallDescription</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <span>@item.BigDescription</span>
-        </div>
-
     }
 </div>
 
