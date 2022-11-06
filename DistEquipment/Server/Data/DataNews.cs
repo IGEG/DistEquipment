@@ -5,7 +5,7 @@ namespace DistEquipment.Server.Data
 {
     public class DataNews : IDataNews
     {
-        private AppDBcontext _context;
+        private readonly AppDBcontext _context;
 
         public DataNews(AppDBcontext context)
         {
@@ -13,13 +13,13 @@ namespace DistEquipment.Server.Data
         }
         public async Task<List<News>> GetNews()
         {
-            return await _context.News.ToListAsync();
+            return await _context.NewsMenu.ToListAsync();
             
         }
 
         public async Task<News> GetNewsByURL(string Url)
         {
-            return await _context.News.FirstOrDefaultAsync(n => n.UrlName == Url);
+            return await _context.NewsMenu.FirstOrDefaultAsync(n => n.UrlName == Url);
            
         }
     }

@@ -1,7 +1,9 @@
 ﻿using DistEquipment.Client.Services;
+using DistEquipment.Server.Data;
 using DistEquipment.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using IDataNews = DistEquipment.Server.Data.IDataNews;
 
 namespace DistEquipment.Server.Controllers
 {
@@ -26,7 +28,7 @@ namespace DistEquipment.Server.Controllers
         [HttpGet("{Url}")]
         public async Task<ActionResult<News>> GetNewsByUrl(string Url)
         {
-            return Ok(await _dataNews.GetNewsByUrl(Url));
+            return Ok(await _dataNews.GetNewsByURL(Url));
         }
     }
 }

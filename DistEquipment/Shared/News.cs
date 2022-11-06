@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DistEquipment.Shared
+
 {
+    [Table("NewsMenu")]
     public class News
     {
         public int Id { get; set; }

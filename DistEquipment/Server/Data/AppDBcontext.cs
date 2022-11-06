@@ -16,7 +16,7 @@ namespace DistEquipment.Server.Data
        public DbSet<Solvent> Solvents { get; set; }
         public DbSet<Calculator> Calculators { get; set; }
         public DbSet<Work> Works { get; set; }
-        public DbSet<News> News { get; set; }
+        public DbSet<News> NewsMenu { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
