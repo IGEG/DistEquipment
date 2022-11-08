@@ -1,0 +1,33 @@
+﻿@page "/news/{Url}"
+@inject IDataNews DataNews
+<div class="header">
+<h3>@OneNews.Title</h3>
+</div>
+<div class="img">
+   <img src="@OneNews.Image"/>
+</div>
+<div class="body">
+    <p>
+        @OneNews.SmallDescription
+    </p>
+</div>
+<div class="body">
+    <p>
+        @OneNews.BigDescription
+    </p>
+</div>
+
+
+@code {
+    [Parameter]
+    public string Url { get; set; }
+
+    private DistEquipment.Shared.News OneNews = new DistEquipment.Shared.News();  
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        OneNews = await DataNews.GetNewsByUrl(Url);
+
+    }
+}
