@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AppDBcontext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AbbDBcontext")));
+builder.Services.AddDbContext<AppDBcontext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("AbbDBcontext")));
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddAutoMapper(typeof(AppMapperProfile));
