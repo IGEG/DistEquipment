@@ -95,6 +95,14 @@ namespace DistEquipment.Server.Data
 
                );
 
+            var dateTimeProperties = modelBuilder.Model.GetEntityTypes()
+                 .SelectMany(t => t.GetProperties())
+                 .Where(p => p.ClrType == typeof(DateTime) || p.ClrType == typeof(DateTime?));
+
+            foreach (var property in dateTimeProperties)
+            {
+                property.SetColumnType("timestamp without time zone");
+            }
 
         }
         
