@@ -1,7 +1,7 @@
 # DistEquipment
 
 * Платформа: ASP.NET 6.0
-* Приложение построена на фреймворке Blazor WebAssembley
+* Приложение построено на фреймворке Blazor WebAssembley
   
 ## Описание
 
