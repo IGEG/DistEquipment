@@ -1,0 +1,123 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = DistEquipment.Client
+build_property.RootNamespace = DistEquipment.Client
+build_property.ProjectDir = C:\Users\igor1\source\repos\DistEquipment\DistEquipment\Client\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\igor1\source\repos\DistEquipment\DistEquipment\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/Article.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/Contacts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/Description.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVzY3JpcHRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/FeedBack.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVlZEJhY2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/Calculator.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhbGN1bGF0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/FBForm.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZCRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/FooterLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvb3RlckxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/Products.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFByb2R1Y3RzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/SlideImaget.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNsaWRlSW1hZ2V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/TopMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRvcE1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/DistillarsProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlzdGlsbGFyc1Byb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-990tmna7sw
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/News.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-7lgyo16icu
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/NewsDescription.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3c0Rlc2NyaXB0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ckx7vdljju
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Pages/RecBag.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjQmFnLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-967csqbevj
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/CardsCategories.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcmRzQ2F0ZWdvcmllcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-fnyq8ymmxs
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/FirstPage.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZpcnN0UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-54k18h7wfj
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-37dzy75qhx
+
+[C:/Users/igor1/source/repos/DistEquipment/DistEquipment/Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-is1zgkjfkd

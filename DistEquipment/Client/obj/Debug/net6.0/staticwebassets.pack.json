@@ -1,0 +1,181 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\obj\\Debug\\net6.0\\compressed\\eu3niottit.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DistEquipment.Client.styles.css",
+      "PackagePath": "staticwebassets\\DistEquipment.Client.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\CardsCategories\\distillatr-standart-125-litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\CardsCategories\\distillatr-standart-125-litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\CardsCategories\\rec-bag.png",
+      "PackagePath": "staticwebassets\\Img\\CardsCategories\\rec-bag.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\SmallDist20.jpg",
+      "PackagePath": "staticwebassets\\Img\\SmallDist20.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\Distillator-20-litrov.png",
+      "PackagePath": "staticwebassets\\Img\\distillar\\Distillator-20-litrov.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distilator-standart-PLC 250 litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distilator-standart-PLC 250 litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillator-standart-20-litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillator-standart-20-litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillator-standart-40-litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillator-standart-40-litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillator-standart-90-litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillator-standart-90-litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillatr-standart-125-litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillatr-standart-125-litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillatr-standart-60-litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillatr-standart-60-litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillatr-standart-90-litrov.png",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillatr-standart-90-litrov.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillatro-standart-250-litrov.png",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillatro-standart-250-litrov.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillatro-standart-450-litrov.jpg",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillatro-standart-450-litrov.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\distillar\\distillatros-sandart-plc-450-litrov.png",
+      "PackagePath": "staticwebassets\\Img\\distillar\\distillatros-sandart-plc-450-litrov.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\news\\hand-tool.png",
+      "PackagePath": "staticwebassets\\Img\\news\\hand-tool.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\news\\help.png",
+      "PackagePath": "staticwebassets\\Img\\news\\help.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\rec-bag-solvent.jpeg",
+      "PackagePath": "staticwebassets\\Img\\rec-bag-solvent.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\rec-bag30.png",
+      "PackagePath": "staticwebassets\\Img\\rec-bag30.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\slider2.jpg",
+      "PackagePath": "staticwebassets\\Img\\slider2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\slider\\IndexLable.jpg",
+      "PackagePath": "staticwebassets\\Img\\slider\\IndexLable.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\slider\\MainLable.jpg",
+      "PackagePath": "staticwebassets\\Img\\slider\\MainLable.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\Img\\slider\\MainLable2.jpg",
+      "PackagePath": "staticwebassets\\Img\\slider\\MainLable2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\igeg\\Documents\\repos\\DistEquipment\\DistEquipment\\Client\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.DistEquipment.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.DistEquipment.Client.props",
+      "PackagePath": "build\\DistEquipment.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.DistEquipment.Client.props",
+      "PackagePath": "buildMultiTargeting\\DistEquipment.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.DistEquipment.Client.props",
+      "PackagePath": "buildTransitive\\DistEquipment.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
