@@ -12,7 +12,7 @@ namespace DistEquipment.Client.Services
         {
             _dataProduct = dataProduct;
         }
-        public async Task<int> Calculate(ModelFormCalculator modelFormCalculator)
+        public async Task<int> Calculate(CalculatorModel modelFormCalculator)
         {
             //затраты на утилизацию
             decimal disposalSolvent = 15;

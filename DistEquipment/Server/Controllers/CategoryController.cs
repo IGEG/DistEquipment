@@ -10,8 +10,9 @@ namespace DistEquipment.Server.Controllers
     {
         private readonly IDataCategory _dataCategory;
 
-        public CategoryController(IDataCategory dataCategory)
+        public CategoryController(IDataCategory dataCategory, ILogger<CategoryController> logger)
         {
+            logger.LogInformation("created CategoryController");
             _dataCategory = dataCategory;
         }
 
